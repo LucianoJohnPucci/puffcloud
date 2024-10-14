@@ -23,10 +23,36 @@
             font-size: 4em; /* Adjust font size as needed */
             text-align: center;
         }
+
+        /* Style each letter of "Puff" with a different color */
+        .colored-text span {
+            color: white; /* default color */
+        }
+
+        .colored-text .p {
+            color: red;
+        }
+
+        .colored-text .u {
+            color: green;
+        }
+
+        .colored-text .f1 {
+            color: blue;
+        }
+
+        .colored-text .f2 {
+            color: yellow;
+        }
     </style>
 </head>
 <body>
-    <!-- Main content of the page -->
-    <h1>Welcome to the Puff Cloud</h1>
+    <!-- Main content of the page with colored letters for "Puff" -->
+    <h1>
+        <span class="colored-text">
+            <span class="p">P</span><span class="u">u</span><span class="f1">f</span><span class="f2">f</span>
+        </span>
+        Cloud
+    </h1>
 </body>
 </html>
