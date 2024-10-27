@@ -25,7 +25,7 @@ def login():
             return redirect(url_for("dashboard"))
         else:
             return "User not found", 404
-    return render_template("login.html")
+    return render_template("index.html")
 
 # Dashboard Route
 @app.route("/dashboard")

@@ -2,57 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Welcome to the Puff Cloud</title>
-    <style>
-        /* Set the background color to black and remove default margin/padding */
-        body, html {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: black;
-        }
-
-        /* Center the text in the middle of the page */
-        h1 {
-            color: white;
-            font-size: 4em; /* Adjust font size as needed */
-            text-align: center;
-        }
-
-        /* Style each letter of "Puff" with a different color */
-        .colored-text span {
-            color: white; /* default color */
-        }
-
-        .colored-text .p {
-            color: red;
-        }
-
-        .colored-text .u {
-            color: green;
-        }
-
-        .colored-text .f1 {
-            color: blue;
-        }
-
-        .colored-text .f2 {
-            color: yellow;
-        }
-    </style>
+    <title>Login</title>
 </head>
 <body>
-    <!-- Main content of the page with colored letters for "Puff" -->
-    <h1>
-        <span class="colored-text">
-            <span class="p">P</span><span class="u">u</span><span class="f1">f</span><span class="f2">f</span>
-        </span>
-        Cloud
-    </h1>
+    <h2>Welcome to the Dashboard</h2>
+    <p>Please login to access your data</p>
+    <form action="/" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required>
+        <button type="submit">Login</button>
+    </form>
 </body>
 </html>

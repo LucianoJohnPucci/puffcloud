@@ -1,0 +1,8 @@
+dashboard_app/
++-- app.py             # Main Flask application
++-- models.py          # SQLAlchemy models
++-- templates/
+|   +-- index.html     # Main entry page (login form or welcome)
+|   +-- dashboard.html # HTML template for the dashboard
++-- static/
+    +-- styles.css     # CSS for layout styling
