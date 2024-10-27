@@ -27,27 +27,29 @@
 
     /* Styling for each window section */
     .window {
-      background-color: #ffffff;
+      border: 4px double #333; /* Double line border */
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       padding: 20px;
       color: #333;
       text-align: center;
       overflow: auto;
     }
 
-    /* Different sizes for specific windows */
+    /* Background colors for different shades of gray */
     .large {
       grid-column: span 2;
       grid-row: span 2;
+      background-color: #e0e0e0; /* Light gray */
     }
     .medium {
       grid-column: span 1;
       grid-row: span 2;
+      background-color: #cccccc; /* Medium gray */
     }
     .small {
       grid-column: span 1;
       grid-row: span 1;
+      background-color: #b3b3b3; /* Darker gray */
     }
 
     /* Placeholder styling */
