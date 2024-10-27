@@ -1,14 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Example</title>
+  <style>
+    /* General reset and styling */
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Dashboard grid layout */
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* Styling for each window section */
+    .window {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      color: #333;
+      text-align: center;
+      overflow: auto;
+    }
+
+    /* Different sizes for specific windows */
+    .large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .medium {
+      grid-column: span 1;
+      grid-row: span 2;
+    }
+    .small {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+
+    /* Placeholder styling */
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.2em;
+    }
+    p {
+      font-size: 1em;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
-    <h2>Welcome to the Puff CLOUD</h2>
-    <p>Please login to access your data</p>
-<form action="/" method="POST">
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email" required>
-    <button type="submit">Login</button>
-</form>
+
+  <h1>Dashboard Example</h1>
+  <div class="dashboard">
+    <div class="window large">
+      <h2>Large Window</h2>
+      <p>This is a large window for displaying main content.</p>
+    </div>
+    <div class="window medium">
+      <h2>Medium Window</h2>
+      <p>This is a medium window, perfect for summaries or graphs.</p>
+    </div>
+    <div class="window small">
+      <h2>Small Window</h2>
+      <p>Placeholder for quick stats or notifications.</p>
+    </div>
+    <div class="window small">
+      <h2>Small Window</h2>
+      <p>Another quick view for stats or notes.</p>
+    </div>
+    <div class="window medium">
+      <h2>Medium Window</h2>
+      <p>Placeholder for additional info or widgets.</p>
+    </div>
+  </div>
+
+</body>
+</html>
