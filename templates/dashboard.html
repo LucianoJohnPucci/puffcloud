@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Welcome to Your Dashboard</h2>
+    <a href="{{ url_for('logout') }}">Logout</a>
+    
+    <div class="frame">
+        <h3>Google Sheets Data</h3>
+        <table>
+            {% for row in google_data %}
+            <tr><td>{{ row['data'] }}</td></tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+    <div class="frame">
+        <h3>API Data</h3>
+        <table>
+            {% for item in api_data %}
+            <tr><td>{{ item['data'] }}</td></tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- Add more frames as needed for additional data sources -->
+</body>
+</html>
