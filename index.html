@@ -3,89 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Example</title>
+  <title>Dynamic Comic Book Style Dashboard</title>
   <style>
-    /* General reset and styling */
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    /* Reset and styling */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body, html {
+      height: 100%;
       font-family: Arial, sans-serif;
       background-color: #f0f2f5;
-      margin: 0;
-      padding: 20px;
     }
 
-    /* Dashboard grid layout */
+    /* Fullscreen grid layout */
     .dashboard {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      max-width: 1200px;
-      width: 100%;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 10px;
+      height: 100vh;
+      width: 100vw;
+      padding: 10px;
     }
 
-    /* Styling for each window section */
+    /* Double line frame and color styling */
     .window {
-      border: 4px double #333; /* Double line border */
-      border-radius: 8px;
-      padding: 20px;
+      border: 4px double #333; /* Double border for comic style */
+      border-radius: 5px;
       color: #333;
       text-align: center;
       overflow: auto;
+      padding: 15px;
     }
 
-    /* Background colors for different shades of gray */
-    .large {
-      grid-column: span 2;
-      grid-row: span 2;
-      background-color: #e0e0e0; /* Light gray */
-    }
-    .medium {
-      grid-column: span 1;
-      grid-row: span 2;
-      background-color: #cccccc; /* Medium gray */
-    }
-    .small {
-      grid-column: span 1;
-      grid-row: span 1;
-      background-color: #b3b3b3; /* Darker gray */
-    }
+    /* Different shades of gray for each section */
+    .box1 { background-color: #dcdcdc; grid-column: span 2; grid-row: span 2; }
+    .box2 { background-color: #bcbcbc; grid-column: span 1; grid-row: span 1; }
+    .box3 { background-color: #9c9c9c; grid-column: span 1; grid-row: span 1; }
+    .box4 { background-color: #cccccc; grid-column: span 2; grid-row: span 1; }
+    .box5 { background-color: #b3b3b3; grid-column: span 2; grid-row: span 1; }
+    .box6 { background-color: #7a7a7a; grid-column: span 4; grid-row: span 1; }
 
-    /* Placeholder styling */
+    /* Text styling */
     h2 {
-      margin: 0 0 10px;
-      font-size: 1.2em;
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
     }
     p {
       font-size: 1em;
       color: #666;
     }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, auto);
+      }
+      .box1 { grid-column: span 2; grid-row: span 2; }
+      .box2, .box3, .box4, .box5 { grid-column: span 1; }
+      .box6 { grid-column: span 2; grid-row: span 1; }
+    }
   </style>
 </head>
 <body>
 
-  <h1>Dashboard Example</h1>
   <div class="dashboard">
-    <div class="window large">
-      <h2>Large Window</h2>
-      <p>This is a large window for displaying main content.</p>
+    <div class="window box1">
+      <h2>Large Panel</h2>
+      <p>Placeholder for main comic-style content.</p>
     </div>
-    <div class="window medium">
-      <h2>Medium Window</h2>
-      <p>This is a medium window, perfect for summaries or graphs.</p>
+    <div class="window box2">
+      <h2>Small Panel</h2>
+      <p>Quick note or highlight here.</p>
     </div>
-    <div class="window small">
-      <h2>Small Window</h2>
-      <p>Placeholder for quick stats or notifications.</p>
+    <div class="window box3">
+      <h2>Small Panel</h2>
+      <p>Another quick stat or message.</p>
     </div>
-    <div class="window small">
-      <h2>Small Window</h2>
-      <p>Another quick view for stats or notes.</p>
+    <div class="window box4">
+      <h2>Medium Panel</h2>
+      <p>Information or content summary.</p>
     </div>
-    <div class="window medium">
-      <h2>Medium Window</h2>
-      <p>Placeholder for additional info or widgets.</p>
+    <div class="window box5">
+      <h2>Medium Panel</h2>
+      <p>Additional info or visual component.</p>
+    </div>
+    <div class="window box6">
+      <h2>Wide Panel</h2>
+      <p>Footer-like area for broader messages or links.</p>
     </div>
   </div>
 
