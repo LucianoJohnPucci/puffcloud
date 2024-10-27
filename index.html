@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Comic Book Style Dashboard</title>
+  <title>Puff Dashboard</title>
   <style>
     /* Reset and styling */
     * {
@@ -22,11 +22,21 @@
     .dashboard {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(3, 1fr);
+      grid-template-rows: auto repeat(3, 1fr);
       gap: 10px;
       height: 100vh;
       width: 100vw;
       padding: 10px;
+    }
+
+    /* Dashboard Title */
+    .title {
+      grid-column: span 4;
+      text-align: center;
+      font-size: 3em;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
     }
 
     /* Double line frame and color styling */
@@ -44,8 +54,9 @@
     .box2 { background-color: #bcbcbc; grid-column: span 1; grid-row: span 1; }
     .box3 { background-color: #9c9c9c; grid-column: span 1; grid-row: span 1; }
     .box4 { background-color: #cccccc; grid-column: span 2; grid-row: span 1; }
-    .box5 { background-color: #b3b3b3; grid-column: span 2; grid-row: span 1; }
-    .box6 { background-color: #7a7a7a; grid-column: span 4; grid-row: span 1; }
+    .box5 { background-color: #b3b3b3; grid-column: span 1; grid-row: span 2; }
+    .box6 { background-color: #7a7a7a; grid-column: span 1; grid-row: span 1; }
+    .box7 { background-color: #a3a3a3; grid-column: span 2; grid-row: span 1; }
 
     /* Text styling */
     h2 {
@@ -61,20 +72,21 @@
     @media (max-width: 768px) {
       .dashboard {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(6, auto);
+        grid-template-rows: auto repeat(6, auto);
       }
       .box1 { grid-column: span 2; grid-row: span 2; }
-      .box2, .box3, .box4, .box5 { grid-column: span 1; }
-      .box6 { grid-column: span 2; grid-row: span 1; }
+      .box2, .box3, .box4, .box5, .box6, .box7 { grid-column: span 2; grid-row: span 1; }
     }
   </style>
 </head>
 <body>
 
   <div class="dashboard">
+    <div class="title">PUFF DASHBOARD</div>
+    
     <div class="window box1">
       <h2>Large Panel</h2>
-      <p>Placeholder for main comic-style content.</p>
+      <p>Placeholder for main GRAPH.</p>
     </div>
     <div class="window box2">
       <h2>Small Panel</h2>
@@ -93,6 +105,10 @@
       <p>Additional info or visual component.</p>
     </div>
     <div class="window box6">
+      <h2>Small Panel</h2>
+      <p>Another quick view for stats or notifications.</p>
+    </div>
+    <div class="window box7">
       <h2>Wide Panel</h2>
       <p>Footer-like area for broader messages or links.</p>
     </div>
