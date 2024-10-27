@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 import os
+from app import db
+from models import User
 
 # Initialize the Flask app
 app = Flask(__name__)
@@ -18,14 +20,35 @@ from models import User
 @app.route("/", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        username = request.form["username"]
-        user = User.query.filter_by(username=username).first()
+        email = request.form["email"]  # Ensure 'email' matches the form's field name
+        user = User.query.filter_by(email=email).first()  # Look up user by email
+
         if user:
             session["user_id"] = user.id
             return redirect(url_for("dashboard"))
         else:
             return "User not found", 404
+
     return render_template("index.html")
+
+
+class User(db.Model):
+    __tablename__ = "users"
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(50), unique=True, nullable=False)
+    password = db.Column(db.String(50), nullable=True)  # Optional, if you want password authentication
+
+    def __repr__(self):
+        return f"<User {self.email}>"
+
+# Create the database tables if they don't exist
+db.create_all()
+
+# Add a user
+new_user = User(email="lucianojohnpucci@gmail.com", password="password123")
+db.session.add(new_user)
+db.session.commit()
+
 
 # Dashboard Route
 @app.route("/dashboard")
