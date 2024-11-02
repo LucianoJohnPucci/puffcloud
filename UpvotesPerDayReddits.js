@@ -1,1 +1,0 @@
-[{"Subreddit":"r/unpopularopinion","Title":"people_that_are_heavily_into_philosophy_are_some","CommentsPerDay":2.4438356164383563,"NumberOfComments":892,"PostLink":"https://www.reddit.com/r/unpopularopinion/comments/1bmrw1b/people_that_are_heavily_into_philosophy_are_some/"}]
