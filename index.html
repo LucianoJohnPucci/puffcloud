@@ -55,7 +55,7 @@
       commentsPerDay: './CommentsPerDayReddits.json'
     };
 
- // Function to fetch and display data for each frame
+  // Function to fetch and display data for each frame
   function fetchDataAndDisplay(url, elementId) {
     fetch(url)
       .then(response => {
@@ -66,16 +66,20 @@
       })
       .then(data => {
         if (Array.isArray(data) && data.length > 0) {
-          // Create a table structure with headers
+          // Get the current timestamp
+          const timestamp = new Date().toLocaleString();
+
+          // Create a table structure with headers and timestamp
           const table = `
             <table style="width:100%; border-collapse: collapse;">
+              <caption style="font-weight: bold; padding: 8px; text-align: left;">Last Updated: ${timestamp}</caption>
               <thead>
                 <tr>
-                  <th style="border: 1px solid #333; padding: 8px;">UPDATED</th>
-                  <th style="border: 1px solid #333; padding: 8px;">UPDATED</th>
-                  <th style="border: 1px solid #333; padding: 8px;">UPDATED</th>
-                  <th style="border: 1px solid #333; padding: 8px;">UPDATED</th>
-                  <th style="border: 1px solid #333; padding: 8px;">UPDATED</th>
+                  <th style="border: 1px solid #333; padding: 8px;">Subreddit</th>
+                  <th style="border: 1px solid #333; padding: 8px;">Title</th>
+                  <th style="border: 1px solid #333; padding: 8px;">Comments per Day</th>
+                  <th style="border: 1px solid #333; padding: 8px;">Number of Comments</th>
+                  <th style="border: 1px solid #333; padding: 8px;">Post Link</th>
                 </tr>
               </thead>
               <tbody>
