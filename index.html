@@ -55,7 +55,7 @@
       commentsPerDay: './CommentsPerDayReddits.json'
     };
 
-// Function to fetch and display data for each frame
+ // Function to fetch and display data for each frame
   function fetchDataAndDisplay(url, elementId) {
     fetch(url)
       .then(response => {
@@ -66,19 +66,33 @@
       })
       .then(data => {
         if (Array.isArray(data) && data.length > 0) {
-          // Loop through all items in the data array
-          const content = data.map(item => `
-            <div>
-              <strong>Subreddit:</strong> ${item.Subreddit} <br>
-              <strong>Title:</strong> ${item.Title} <br>
-              <strong>Comments per Day:</strong> ${item.CommentsPerDay} <br>
-              <strong>Number of Comments:</strong> ${item.NumberOfComments} <br>
-              <strong>Post Link:</strong> <a href="${item.PostLink}" target="_blank">Link</a>
-            </div>
-            <hr>
-          `).join(''); // Combine all rows with <hr> to separate them
+          // Create a table structure with headers
+          const table = `
+            <table style="width:100%; border-collapse: collapse;">
+              <thead>
+                <tr>
+                  <th style="border: 1px solid #333; padding: 8px;">Subreddit</th>
+                  <th style="border: 1px solid #333; padding: 8px;">Title</th>
+                  <th style="border: 1px solid #333; padding: 8px;">Comments per Day</th>
+                  <th style="border: 1px solid #333; padding: 8px;">Number of Comments</th>
+                  <th style="border: 1px solid #333; padding: 8px;">Post Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${data.map(item => `
+                  <tr>
+                    <td style="border: 1px solid #333; padding: 8px;">${item.Subreddit}</td>
+                    <td style="border: 1px solid #333; padding: 8px;">${item.Title}</td>
+                    <td style="border: 1px solid #333; padding: 8px;">${item.CommentsPerDay}</td>
+                    <td style="border: 1px solid #333; padding: 8px;">${item.NumberOfComments}</td>
+                    <td style="border: 1px solid #333; padding: 8px;"><a href="${item.PostLink}" target="_blank">Link</a></td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          `;
 
-          document.getElementById(elementId).innerHTML = content;
+          document.getElementById(elementId).innerHTML = table;
         } else {
           document.getElementById(elementId).textContent = "No data available";
         }
