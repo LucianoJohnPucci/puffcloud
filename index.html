@@ -82,37 +82,72 @@
 <body>
 
   <div class="dashboard">
-    <div class="title">PUFF DASHBOARD</div>
+    <div class="title">PHILO REDDIT DASHBOARD</div>
     
     <div class="window box1">
-      <h2>Large Panel</h2>
-      <p>Placeholder for main GRAPH.</p>
+      <h2>NewestSubReddits</h2>
+      <p id="newest-subreddits">Loading...</p>
     </div>
     <div class="window box2">
-      <h2>Small Panel</h2>
-      <p>Quick note or highlight here.</p>
+      <h2>OldestSubReddits</h2>
+      <p id="oldest-subreddits">Loading...</p>
     </div>
     <div class="window box3">
-      <h2>Small Panel</h2>
-      <p>Another quick stat or message.</p>
+      <h2>HighestCommentsReddits</h2>
+      <p id="highest-comments">Loading...</p>
     </div>
     <div class="window box4">
-      <h2>Medium Panel</h2>
-      <p>Information or content summary.</p>
+      <h2>HighestUpvoteReddits</h2>
+      <p id="highest-upvotes">Loading...</p>
     </div>
     <div class="window box5">
-      <h2>Medium Panel</h2>
-      <p>Additional info or visual component.</p>
+      <h2>UpvotesPerDayReddits</h2>
+      <p id="upvotes-per-day">Loading...</p>
     </div>
     <div class="window box6">
-      <h2>Small Panel</h2>
-      <p>Another quick view for stats or notifications.</p>
+      <h2>EngageVelocityReddits</h2>
+      <p id="engage-velocity">Loading...</p>
     </div>
     <div class="window box7">
-      <h2>Wide Panel</h2>
-      <p>Footer-like area for broader messages or links.</p>
+      <h2>CommentsPerDayReddits</h2>
+      <p id="comments-per-day">Loading...</p>
     </div>
   </div>
+
+  <script>
+    // Define the URLs for each data file
+    const dataUrls = {
+      newestSubreddits: 'https://raw.githubusercontent.com/LucianoJohnPucci/puffcloud/branch/NewestSubReddits.js',
+      oldestSubreddits: 'https://raw.githubusercontent.com/LucianoJohnPucci/puffcloud/branch/OldestSubReddits.js',
+      highestComments: 'https://raw.githubusercontent.com/LucianoJohnPucci/puffcloud/branch/HighestCommentsReddits.js',
+      highestUpvotes: 'https://raw.githubusercontent.com/LucianoJohnPucci/puffcloud/branch/HighestUpvoteReddits.js',
+      upvotesPerDay: 'https://raw.githubusercontent.com/LucianoJohnPucci/puffcloud/branch/UpvotesPerDayReddits.js',
+      engageVelocity: 'https://raw.githubusercontent.com/LucianoJohnPucci/puffcloud/branch/EngageVelocityReddits.js',
+      commentsPerDay: 'https://raw.githubusercontent.com/LucianoJohnPucci/puffcloud/branch/CommentsPerDayReddits.js'
+    };
+
+    // Function to fetch and display data for each frame
+    function fetchDataAndDisplay(url, elementId) {
+      fetch(url)
+        .then(response => response.text()) // assuming the data files contain text or JSON string
+        .then(data => {
+          document.getElementById(elementId).textContent = data;
+        })
+        .catch(error => {
+          console.error(`Error fetching data from ${url}:`, error);
+          document.getElementById(elementId).textContent = "Error loading data";
+        });
+    }
+
+    // Fetch and display data for each section
+    fetchDataAndDisplay(dataUrls.newestSubreddits, "newest-subreddits");
+    fetchDataAndDisplay(dataUrls.oldestSubreddits, "oldest-subreddits");
+    fetchDataAndDisplay(dataUrls.highestComments, "highest-comments");
+    fetchDataAndDisplay(dataUrls.highestUpvotes, "highest-upvotes");
+    fetchDataAndDisplay(dataUrls.upvotesPerDay, "upvotes-per-day");
+    fetchDataAndDisplay(dataUrls.engageVelocity, "engage-velocity");
+    fetchDataAndDisplay(dataUrls.commentsPerDay, "comments-per-day");
+  </script>
 
 </body>
 </html>
