@@ -1,5 +1,12 @@
 [
   {
+    "Subreddit": "Subreddit",
+    "Title": "Post Title",
+    "CommentsPerDay": "Date",
+    "NumberOfComments": "Upvotes",
+    "PostLink": "Comments"
+  },
+  {
     "Subreddit": "r/books",
     "Title": "What are must read philosophy books?",
     "CommentsPerDay": "11y ago",
