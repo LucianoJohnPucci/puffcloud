@@ -5,84 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Puff Dashboard</title>
   <style>
-    /* Reset and styling */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body, html {
-      height: 100%;
-      font-family: Arial, sans-serif;
-      background-color: #f0f2f5;
-    }
-
-    /* Fullscreen grid layout */
-    .dashboard {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: auto repeat(3, 1fr);
-      gap: 10px;
-      height: 100vh;
-      width: 100vw;
-      padding: 10px;
-    }
-
-    /* Dashboard Title */
-    .title {
-      grid-column: span 4;
-      text-align: center;
-      font-size: 3em;
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    /* Double line frame and color styling */
-    .window {
-      border: 4px double #333; /* Double border for comic style */
-      border-radius: 5px;
-      color: #333;
-      text-align: center;
-      overflow: auto;
-      padding: 15px;
-    }
-
-    /* Different shades of gray for each section */
-    .box1 { background-color: #dcdcdc; grid-column: span 2; grid-row: span 2; }
-    .box2 { background-color: #bcbcbc; grid-column: span 1; grid-row: span 1; }
-    .box3 { background-color: #9c9c9c; grid-column: span 1; grid-row: span 1; }
-    .box4 { background-color: #cccccc; grid-column: span 2; grid-row: span 1; }
-    .box5 { background-color: #b3b3b3; grid-column: span 1; grid-row: span 2; }
-    .box6 { background-color: #7a7a7a; grid-column: span 1; grid-row: span 1; }
-    .box7 { background-color: #a3a3a3; grid-column: span 2; grid-row: span 1; }
-
-    /* Text styling */
-    h2 {
-      font-size: 1.5em;
-      margin-bottom: 0.5em;
-    }
-    p {
-      font-size: 1em;
-      color: #666;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .dashboard {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto repeat(6, auto);
-      }
-      .box1 { grid-column: span 2; grid-row: span 2; }
-      .box2, .box3, .box4, .box5, .box6, .box7 { grid-column: span 2; grid-row: span 1; }
-    }
+    /* Add your existing styles here */
   </style>
 </head>
 <body>
 
   <div class="dashboard">
-    <div class="title">PHILO REDDIT DASHBOARD</div>
+    <div class="title">Philosohpy Reddit Dashboard</div>
     
     <div class="window box1">
       <h2>NewestSubReddits</h2>
@@ -115,52 +44,55 @@
   </div>
 
   <script>
-    // Define the URLs for each data file
+    // Define relative URLs for each JSON file in the same directory
     const dataUrls = {
-      newestSubreddits: 'https://raw.githubusercontent.com/LucianoJohnPucci/puffcloud/main/NewestSubReddits.js',
-      oldestSubreddits: 'https://raw.githubusercontent.com/LucianoJohnPucci/puffcloud/main/OldestSubReddits.js',
-      highestComments: 'https://raw.githubusercontent.com/LucianoJohnPucci/puffcloud/main/HighestCommentsReddits.js',
-      highestUpvotes: 'https://raw.githubusercontent.com/LucianoJohnPucci/puffcloud/main/HighestUpvoteReddits.js',
-      upvotesPerDay: 'https://raw.githubusercontent.com/LucianoJohnPucci/puffcloud/main/UpvotesPerDayReddits.js',
-      engageVelocity: 'https://raw.githubusercontent.com/LucianoJohnPucci/puffcloud/main/EngageVelocityReddits.js',
-      commentsPerDay: 'https://raw.githubusercontent.com/LucianoJohnPucci/puffcloud/main/CommentsPerDayReddits.js'
+      newestSubreddits: './NewestSubReddits.json',
+      oldestSubreddits: './OldestSubReddits.json',
+      highestComments: './HighestCommentsReddits.json',
+      highestUpvotes: './HighestUpvoteReddits.json',
+      upvotesPerDay: './UpvotesPerDayReddits.json',
+      engageVelocity: './EngageVelocityReddits.json',
+      commentsPerDay: './CommentsPerDayReddits.json'
     };
 
- // Function to fetch and display data for each frame
-  function fetchDataAndDisplay(url, elementId) {
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json(); // Parse the response as JSON
-      })
-      .then(data => {
-        if (Array.isArray(data) && data.length > 0) {
-          const item = data[0]; // Assuming you want to display the first item in the array
-          document.getElementById(elementId).innerHTML = `
-            <strong>Subreddit:</strong> ${item.Subreddit} <br>
-            <strong>Title:</strong> ${item.Title} <br>
-            <strong>Comments per Day:</strong> ${item.CommentsPerDay} <br>
-            <strong>Number of Comments:</strong> ${item.NumberOfComments} <br>
-            <strong>Post Link:</strong> <a href="${item.PostLink}" target="_blank">Link</a>
-          `;
-        } else {
-          document.getElementById(elementId).textContent = "No data available";
-        }
-      })
-      .catch(error => {
-        console.error(`Error fetching data from ${url}:`, error);
-        document.getElementById(elementId).textContent = "Error loading data";
-      });
-  }
+    // Function to fetch and display data for each frame
+    function fetchDataAndDisplay(url, elementId) {
+      fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json(); // Parse the response as JSON
+        })
+        .then(data => {
+          if (Array.isArray(data) && data.length > 0) {
+            const item = data[0]; // Display the first item in the array
+            document.getElementById(elementId).innerHTML = `
+              <strong>Subreddit:</strong> ${item.Subreddit} <br>
+              <strong>Title:</strong> ${item.Title} <br>
+              <strong>Comments per Day:</strong> ${item.CommentsPerDay} <br>
+              <strong>Number of Comments:</strong> ${item.NumberOfComments} <br>
+              <strong>Post Link:</strong> <a href="${item.PostLink}" target="_blank">Link</a>
+            `;
+          } else {
+            document.getElementById(elementId).textContent = "No data available";
+          }
+        })
+        .catch(error => {
+          console.error(`Error fetching data from ${url}:`, error);
+          document.getElementById(elementId).textContent = "Error loading data";
+        });
+    }
 
-  // Fetch and display data for each section
-  fetchDataAndDisplay(dataUrls.newestSubreddits, "newest-subreddits");
-  fetchDataAndDisplay(dataUrls.oldestSubreddits, "oldest-subreddits");
-  fetchDataAndDisplay(dataUrls.highestComments, "highest-comments");
-  fetchDataAndDisplay(dataUrls.highestUpvotes, "highest-upvotes");
-  fetchDataAndDisplay(dataUrls.upvotesPerDay, "upvotes-per-day");
-  fetchDataAndDisplay(dataUrls.engageVelocity, "engage-velocity");
-  fetchDataAndDisplay(dataU
+    // Fetch and display data for each section
+    fetchDataAndDisplay(dataUrls.newestSubreddits, "newest-subreddits");
+    fetchDataAndDisplay(dataUrls.oldestSubreddits, "oldest-subreddits");
+    fetchDataAndDisplay(dataUrls.highestComments, "highest-comments");
+    fetchDataAndDisplay(dataUrls.highestUpvotes, "highest-upvotes");
+    fetchDataAndDisplay(dataUrls.upvotesPerDay, "upvotes-per-day");
+    fetchDataAndDisplay(dataUrls.engageVelocity, "engage-velocity");
+    fetchDataAndDisplay(dataUrls.commentsPerDay, "comments-per-day");
+  </script>
+
+</body>
 </html>
