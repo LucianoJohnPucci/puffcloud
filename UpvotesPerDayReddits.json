@@ -1,5 +1,12 @@
 [
   {
+    "Subreddit": "Subreddit",
+    "Title": "TITLE",
+    "CommentsPerDay": "UPVOTES PER DAY",
+    "NumberOfComments": "# of Upvotes",
+    "PostLink": "POST LINK COMMENTS"
+  },
+  {
     "Subreddit": "r/unpopularopinion",
     "Title": "people_that_are_heavily_into_philosophy_are_some",
     "CommentsPerDay": 2.4438356164383563,
