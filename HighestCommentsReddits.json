@@ -3,42 +3,42 @@
     "Subreddit": "Subreddit",
     "Title": "Post Title",
     "CommentsPerDay": "Date",
-    "NumberOfComments": "Upvotes",
-    "PostLink": "Comments"
+    "NumberOfComments": "Comments",
+    "PostLink": "Post Link"
   },
   {
     "Subreddit": "r/books",
     "Title": "What are must read philosophy books?",
     "CommentsPerDay": "11y ago",
-    "NumberOfComments": 913,
-    "PostLink": 977
+    "NumberOfComments": 977,
+    "PostLink": "https://www.reddit.com/r/books/comments/1swha5/what_are_must_read_philosophy_books/"
   },
   {
     "Subreddit": "r/changemyview",
     "Title": "CMV: Philosophy education should be mandatory curriculum in high school.",
     "CommentsPerDay": "3y ago",
-    "NumberOfComments": 55,
-    "PostLink": 937
+    "NumberOfComments": 937,
+    "PostLink": "https://www.reddit.com/r/changemyview/comments/ntv0g1/cmv_philosophy_education_should_be_mandatory/"
   },
   {
     "Subreddit": "r/Overwatch",
     "Title": "Compare: Bobby vs Jeff Monetization Philosophy (1/10th the Player Value)",
     "CommentsPerDay": "2y ago",
-    "NumberOfComments": 10,
-    "PostLink": 924
+    "NumberOfComments": 924,
+    "PostLink": "https://www.reddit.com/r/Overwatch/comments/y09bfj/compare_bobby_vs_jeff_monetization_philosophy/"
   },
   {
     "Subreddit": "r/DestinyTheGame",
     "Title": "Destiny 2 has leaned HARD into the mmo \"treadmill\" philosophy",
     "CommentsPerDay": "2y ago",
-    "NumberOfComments": 4,
-    "PostLink": 885
+    "NumberOfComments": 885,
+    "PostLink": "https://www.reddit.com/r/DestinyTheGame/comments/w7pvgm/destiny_2_has_leaned_hard_into_the_mmo_treadmill/"
   },
   {
     "Subreddit": "r/tumblr",
     "Title": "Philosophy questions answered literally",
     "CommentsPerDay": "2y ago",
-    "NumberOfComments": 56,
-    "PostLink": 880
+    "NumberOfComments": 880,
+    "PostLink": "https://www.reddit.com/r/tumblr/comments/136xqhz/philosophy_questions_answered_literally/"
   }
 ]
