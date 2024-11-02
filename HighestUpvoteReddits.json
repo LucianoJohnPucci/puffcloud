@@ -1,5 +1,12 @@
 [
   {
+    "Subreddit": "Subreddit",
+    "Title": "Post Title",
+    "CommentsPerDay": "Date",
+    "NumberOfComments": "Upvotes",
+    "PostLink": "Comments"
+  },
+  {
     "Subreddit": "r/xbox",
     "Title": "Halo Studios: New Name, New Engine, New Games, New Philosophy",
     "CommentsPerDay": "21d ago",
