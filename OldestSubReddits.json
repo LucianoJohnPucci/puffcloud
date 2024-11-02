@@ -1,5 +1,12 @@
 [
   {
+    "Subreddit": "Subreddit",
+    "Title": "TITLE",
+    "CommentsPerDay": "# of DAYS old",
+    "NumberOfComments": "# of Comments",
+    "PostLink": "POST LINK COMMENTS"
+  },
+  {
     "Subreddit": "r/dndmemes",
     "Title": "imagine_playing_with_philosophy_professor_as_a_dm",
     "CommentsPerDay": 1460,
