@@ -1,5 +1,12 @@
 [
   {
+    "Subreddit": "Subreddit",
+    "Title": "TITLE",
+    "CommentsPerDay": "COMMENTS PER DAY",
+    "NumberOfComments": "# of Comments",
+    "PostLink": "POST LINK COMMENTS"
+  },
+  {
     "Subreddit": "r/civ",
     "Title": "switching_of_civs_per_age_is_a_departure_from_the",
     "CommentsPerDay": 11.983333333333333,
