@@ -1,1 +1,1 @@
-{"r/civ":"switching_of_civs_per_age_is_a_departure_from_the"}
+[{"Subreddit":"r/civ","Title":"switching_of_civs_per_age_is_a_departure_from_the","CommentsPerDay":11.983333333333333,"NumberOfComments":719,"PostLink":"https://www.reddit.com/r/civ/comments/1ex6znb/switching_of_civs_per_age_is_a_departure_from_the/"}]
