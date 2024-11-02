@@ -1,5 +1,12 @@
 [
   {
+    "Subreddit": "Subreddit",
+    "Title": "TITLE",
+    "CommentsPerDay": "# of DAYS old",
+    "NumberOfComments": "# of Comments",
+    "PostLink": "POST LINK COMMENTS"
+  },
+  {
     "Subreddit": "r/ARK",
     "Title": "anyone_else_realize_pyromanes_go_against",
     "CommentsPerDay": 60,
