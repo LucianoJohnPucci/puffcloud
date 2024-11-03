@@ -3,85 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Philo Reddit Dashboard</title>
-    <style>
-        /* Basic styling for navigation and sections */
-        nav {
-            display: flex;
-            background-color: #3364ff;
-            padding: 1em;
-        }
-        nav a {
-            color: white;
-            padding: 0.5em 1em;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #555;
-        }
-        section {
-            display: none;
-            padding: 20px;
-        }
-        #Graphs, #Email, #About, #Contact {
-            display: none; /* Initially hide all sections */
-        }
-    </style>
-    <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll("section").forEach(sec => sec.style.display = "none");
-            // Show the selected section
-            document.getElementById(sectionId).style.display = "block";
-        }
-    </script>
-
+  <title>Puff Dashboard</title>
+  <style>
+    /* Add your existing styles here */
+  </style>
 </head>
 <body>
-    <nav>
-      <a href="#" onclick="showSection('About')">About</a>
-      <a href="#" onclick="showSection('Graphs')">Graphs</a>
-      <a href="#" onclick="showSection('Email')">Email it to Me</a>
-      <a href="#" onclick="showSection('Contact')">Contact Us</a>
-    </nav>
 
-
-
-  
-    <!-- Sections for each page -->
-    <section id="Graphs" style="width: 100%; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <h2>Graphs</h2>
-        <img src="./EntireSheetLandscape.png" alt="Dashboard Image" style="width: 100%; height: calc(100vh - 100px); object-fit: contain; border: none;">
-        <a href="./EntireSheetLandscape.png" target="_blank">Download Chart PNG</a>
-    </section>
-
-
-    <section id="Email">
-        <h2>Email it to Me</h2>
-        <!-- Content to email PDFs or other information -->
-        <button onclick="emailData()">Request Data via your Email</button>
-    </section>
-
-    <section id="About">
-        <h2>About</h2>
-        <p>Information about this page or project.</p>
-    </section>
-
-    <section id="Contact">
-        <h2>Contact Us</h2>
-        <p>Contact form or details can go here.</p>
-    </section>
-
-    <script>
-        function emailData() {
-            alert("Functionality to email data will be implemented here.");
-        }
-    </script>
-
-
-    
   <div class="dashboard">
-    <h1 style="text-align: center; font-size: 3em; font-weight: bold; margin-bottom: 20px;">Philosophy Sub-Reddit Dashboard</h1>
+    <h1 style="text-align: center; font-size: 3em; font-weight: bold; margin-bottom: 20px;">Philosophy Reddit Dashboard</h1>
     
     <div class="window box1">
       <h2>NewestSubReddits</h2>
