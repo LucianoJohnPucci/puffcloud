@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Puff Dashboard</title>
+  <title>Philo Reddit Dashboard</title>
     <style>
         /* Basic styling for navigation and sections */
         nav {
             display: flex;
-            background-color: #333;
+            background-color: #3364ff;
             padding: 1em;
         }
         nav a {
@@ -39,10 +39,10 @@
 </head>
 <body>
       <nav>
-        <a href="ABOUT" onclick="showSection('About')">About</a>
-        <a href="GRAPHS" onclick="showSection('Graphs')">Graphs</a>
-        <a href="EMAIL" onclick="showSection('Email')">Email it to Me</a>
-        <a href="CONTACT" onclick="showSection('Contact')">Contact Us</a>
+        <a href="#" onclick="showSection('About')">About</a>
+        <a href="#" onclick="showSection('Graphs')">Graphs</a>
+        <a href="#" onclick="showSection('Email')">Email it to Me</a>
+        <a href="#" onclick="showSection('Contact')">Contact Us</a>
       </nav>
 
 
@@ -51,7 +51,6 @@
     <!-- Sections for each page -->
     <section id="Graphs" style="width: 100%; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <h2>Graphs</h2>
-        <p>DASHBOARD IMAGE:</p>
         <img src="./EntireSheetLandscape.png" alt="Dashboard Image" style="width: 100%; height: calc(100vh - 100px); object-fit: contain; border: none;">
         <a href="./EntireSheetLandscape.png" target="_blank">Download Chart PNG</a>
     </section>
