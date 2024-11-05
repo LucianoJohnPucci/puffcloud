@@ -7,13 +7,6 @@
     "PostLink": "POST LINK COMMENTS"
   },
   {
-    "Subreddit": "r/Losercity",
-    "Title": "losercity_philosophy",
-    "CommentsPerDay": 17,
-    "NumberOfComments": 790,
-    "PostLink": "https://www.reddit.com/r/Losercity/comments/1g6fdcq/losercity_philosophy/"
-  },
-  {
     "Subreddit": "r/ARK",
     "Title": "anyone_else_realize_pyromanes_go_against",
     "CommentsPerDay": 60,
@@ -180,5 +173,12 @@
     "CommentsPerDay": 180,
     "NumberOfComments": 36,
     "PostLink": "https://www.reddit.com/r/FemFragLab/comments/1c56f3n/does_anyone_else_hate_fresh_cream_from_philosophy/"
+  },
+  {
+    "Subreddit": "r/Feminism",
+    "Title": "is_philosophy_sexist",
+    "CommentsPerDay": 180,
+    "NumberOfComments": 74,
+    "PostLink": "https://www.reddit.com/r/Feminism/comments/1cc0wor/is_philosophy_sexist/"
   }
 ]
