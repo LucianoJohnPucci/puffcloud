@@ -7,13 +7,6 @@
     "PostLink": "POST LINK COMMENTS"
   },
   {
-    "Subreddit": "r/Losercity",
-    "Title": "losercity_philosophy",
-    "CommentsPerDay": 46.470588235294116,
-    "NumberOfComments": 790,
-    "PostLink": "https://www.reddit.com/r/Losercity/comments/1g6fdcq/losercity_philosophy/"
-  },
-  {
     "Subreddit": "r/civ",
     "Title": "switching_of_civs_per_age_is_a_departure_from_the",
     "CommentsPerDay": 11.983333333333333,
@@ -180,5 +173,12 @@
     "CommentsPerDay": 1.2054794520547945,
     "NumberOfComments": 880,
     "PostLink": "https://www.reddit.com/r/tumblr/comments/136xqhz/philosophy_questions_answered_literally/"
+  },
+  {
+    "Subreddit": "r/Gamingcirclejerk",
+    "Title": "me_when_i_dont_understand_political_philosophy",
+    "CommentsPerDay": 1.1904761904761905,
+    "NumberOfComments": 250,
+    "PostLink": "https://www.reddit.com/r/Gamingcirclejerk/comments/1c1aqaz/me_when_i_dont_understand_political_philosophy/"
   }
 ]
