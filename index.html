@@ -12,34 +12,54 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Dashboard grid layout */
+    /* Dashboard layout */
     .dashboard {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto 1fr 1fr 1fr 1fr;
       gap: 10px;
       padding: 20px;
       height: 100vh;
       box-sizing: border-box;
+      overflow-y: auto;
     }
 
     /* Title styling */
     h1 {
+      grid-column: span 2;
       text-align: center;
       font-size: 3em;
       font-weight: bold;
       margin: 0 0 20px;
-      grid-column: span 4;
     }
 
     /* Window styling */
     .window {
       border: 2px solid #333;
       padding: 10px;
-      overflow: auto;
       display: flex;
       flex-direction: column;
       align-items: center;
+      overflow: auto;
+      height: 100%;
+    }
+
+    /* Layout for specific windows */
+    #youtube {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      aspect-ratio: 1 / 1; /* Make it a square */
+    }
+    
+    #engage-velocity {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+
+    /* Make the remaining windows span the entire width of the page */
+    .full-width {
+      grid-column: span 2;
+      height: 50vh; /* Half the viewport height for each section */
     }
 
     /* Table styling */
@@ -53,14 +73,6 @@
       padding: 8px;
       text-align: center;
     }
-
-    /* Responsive styling for mobile view */
-    @media (max-width: 768px) {
-      .dashboard {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-      }
-    }
   </style>
 </head>
 <body>
@@ -68,49 +80,52 @@
   <!-- Title -->
   <h1>Artificial Intelligence Reddit Dashboard</h1>
 
-  <!-- Dashboard with 8 windows -->
+  <!-- Dashboard layout with YouTube and Engage Velocity windows at the top -->
   <div class="dashboard">
 
-    <div class="window" id="window1">
+    <!-- Engage Velocity (top left) -->
+    <div class="window" id="engage-velocity">
+      <h2>Engage Velocity</h2>
+      <p id="engage-velocity-content">Loading...</p>
+    </div>
+
+    <!-- YouTube Video (top right, large square) -->
+    <div class="window" id="youtube">
+      <h2>YouTube Video</h2>
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- Stacked full-width windows below -->
+    <div class="window full-width" id="window1">
       <h2>Newest Subreddits</h2>
       <p id="newest-subreddits">Loading...</p>
     </div>
 
-    <div class="window" id="window2">
+    <div class="window full-width" id="window2">
       <h2>Oldest Subreddits</h2>
       <p id="oldest-subreddits">Loading...</p>
     </div>
 
-    <div class="window" id="window3">
+    <div class="window full-width" id="window3">
       <h2>Highest Comments</h2>
       <p id="highest-comments">Loading...</p>
     </div>
 
-    <div class="window" id="window4">
+    <div class="window full-width" id="window4">
       <h2>Highest Upvotes</h2>
       <p id="highest-upvotes">Loading...</p>
     </div>
 
-    <div class="window" id="window5">
+    <div class="window full-width" id="window5">
       <h2>Upvotes per Day</h2>
       <p id="upvotes-per-day">Loading...</p>
     </div>
 
-    <div class="window" id="window6">
-      <h2>Engage Velocity</h2>
-      <p id="engage-velocity">Loading...</p>
-    </div>
-
-    <div class="window" id="window7">
+    <div class="window full-width" id="window7">
       <h2>Comments per Day</h2>
       <p id="comments-per-day">Loading...</p>
     </div>
 
-    <div class="window" id="window8">
-      <h2>YouTube Video</h2>
-      <iframe width="100%" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    
   </div>
 
   <!-- JavaScript for loading data into the windows -->
@@ -173,12 +188,13 @@
         });
     }
 
+    // Fetch data for each section
     fetchDataAndDisplay(dataUrls.newestSubreddits, "newest-subreddits");
     fetchDataAndDisplay(dataUrls.oldestSubreddits, "oldest-subreddits");
     fetchDataAndDisplay(dataUrls.highestComments, "highest-comments");
     fetchDataAndDisplay(dataUrls.highestUpvotes, "highest-upvotes");
     fetchDataAndDisplay(dataUrls.upvotesPerDay, "upvotes-per-day");
-    fetchDataAndDisplay(dataUrls.engageVelocity, "engage-velocity");
+    fetchDataAndDisplay(dataUrls.engageVelocity, "engage-velocity-content");
     fetchDataAndDisplay(dataUrls.commentsPerDay, "comments-per-day");
   </script>
 
