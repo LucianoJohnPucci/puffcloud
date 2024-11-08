@@ -49,6 +49,13 @@
     "PostLink": "https://www.reddit.com/r/agi/comments/1dupyjo/the_economist_what_happened_to_the/"
   },
   {
+    "Subreddit": "r/worldnews",
+    "Title": "artificial_intelligence_raises_ukrainian_drone",
+    "CommentsPerDay": 0.5833333333333334,
+    "NumberOfComments": 14,
+    "PostLink": "https://www.reddit.com/r/worldnews/comments/1g3uurp/artificial_intelligence_raises_ukrainian_drone/"
+  },
+  {
     "Subreddit": "r/compsci",
     "Title": "artificial_intelligence_a_modern_approach_is_hard",
     "CommentsPerDay": 0.5111111111111111,
@@ -173,12 +180,5 @@
     "CommentsPerDay": 0.028767123287671233,
     "NumberOfComments": 21,
     "PostLink": "https://www.reddit.com/r/pcmasterrace/comments/1fign6i/in_regards_to_the_nvidia_ceo_saying_we_cant_do/"
-  },
-  {
-    "Subreddit": "r/OMSCS",
-    "Title": "how_should_i_prepare_myself_for_taking_artificial",
-    "CommentsPerDay": 0.02666666666666667,
-    "NumberOfComments": 8,
-    "PostLink": "https://www.reddit.com/r/OMSCS/comments/1dcfu9e/how_should_i_prepare_myself_for_taking_artificial/"
   }
 ]
