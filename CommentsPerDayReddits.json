@@ -7,6 +7,13 @@
     "PostLink": "POST LINK COMMENTS"
   },
   {
+    "Subreddit": "r/worldnews",
+    "Title": "artificial_intelligence_raises_ukrainian_drone",
+    "CommentsPerDay": 40.041666666666664,
+    "NumberOfComments": 961,
+    "PostLink": "https://www.reddit.com/r/worldnews/comments/1g3uurp/artificial_intelligence_raises_ukrainian_drone/"
+  },
+  {
     "Subreddit": "r/AskReddit",
     "Title": "what_do_you_think_about_peoples_fear_of",
     "CommentsPerDay": 17.866666666666667,
@@ -51,8 +58,8 @@
   {
     "Subreddit": "r/WGU",
     "Title": "master_in_artificial_intelligence_coming_out_soon",
-    "CommentsPerDay": 2.1,
-    "NumberOfComments": 126,
+    "CommentsPerDay": 2.1333333333333333,
+    "NumberOfComments": 128,
     "PostLink": "https://www.reddit.com/r/WGU/comments/1fj97ss/master_in_artificial_intelligence_coming_out_soon/"
   },
   {
@@ -173,12 +180,5 @@
     "CommentsPerDay": 0.26666666666666666,
     "NumberOfComments": 40,
     "PostLink": "https://www.reddit.com/r/PoliticalScience/comments/1d76zmm/should_artificial_intelligence_be_given_human/"
-  },
-  {
-    "Subreddit": "r/ChatGPT",
-    "Title": "artificial_intelligence_recreates_the_time_of_the",
-    "CommentsPerDay": 0.2054794520547945,
-    "NumberOfComments": 150,
-    "PostLink": "https://www.reddit.com/r/ChatGPT/comments/1dpj1y5/artificial_intelligence_recreates_the_time_of_the/"
   }
 ]
