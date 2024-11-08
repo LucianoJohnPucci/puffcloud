@@ -23,7 +23,7 @@
             display: none;
             padding: 20px;
         }
-        #Graphs, #Email, #About, #Contact {
+        #Graphs, #Email, #Data, #Video {
             display: none; /* Initially hide all sections */
         }
     </style>
@@ -39,10 +39,10 @@
 <body>
     <!-- Navigation Bar -->
     <nav>
-        <a href="#" onclick="showSection('About')">About</a>  
+        <a href="#" onclick="showSection('Data')">Data</a>  
         <a href="#" onclick="showSection('Graphs')">Graphs</a>
         <a href="#" onclick="showSection('Email')">Email it to Me</a>
-        <a href="#" onclick="showSection('Contact')">Contact Us</a>
+        <a href="#" onclick="showSection('Video')">Video</a>
     </nav>
 
     <!-- Sections for each page -->
@@ -59,17 +59,17 @@
         <button onclick="emailData()">Request Data via Email</button>
     </section>
 
-    <section id="About">
-        <h2>About</h2>
-            <!-- YouTube Video (top right, large square) -->
+    <section id="Data">
+        <h2>Data</h2>
+
+
+    <section id="Video">
+        <h2>Video</h2>
+                    <!-- YouTube Video (top right, large square) -->
         <div class="window" id="youtube">
         <h2>YouTube Video</h2>
         <iframe width="80%" height="80%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-
-    <section id="Contact">
-        <h2>Contact Us</h2>
-        <p>Contact form or details can go here.</p>
     </section>
 
     <script>
