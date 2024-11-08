@@ -121,7 +121,7 @@
   {
     "Subreddit": "r/OMSCS",
     "Title": "how_should_i_prepare_myself_for_taking_artificial",
-    "CommentsPerDay": 300,
+    "CommentsPerDay": 365,
     "NumberOfComments": 20,
     "PostLink": "https://www.reddit.com/r/OMSCS/comments/1dcfu9e/how_should_i_prepare_myself_for_taking_artificial/"
   },
@@ -131,6 +131,13 @@
     "CommentsPerDay": 300,
     "NumberOfComments": 26,
     "PostLink": "https://www.reddit.com/r/StudyInTheNetherlands/comments/1976x3p/msc_in_artificial_intelligence/"
+  },
+  {
+    "Subreddit": "r/MachineLearning",
+    "Title": "d_why_do_we_say_artificial_intelligence_instead",
+    "CommentsPerDay": 270,
+    "NumberOfComments": 61,
+    "PostLink": "https://www.reddit.com/r/MachineLearning/comments/1ao7b31/d_why_do_we_say_artificial_intelligence_instead/"
   },
   {
     "Subreddit": "r/whenthe",
@@ -173,12 +180,5 @@
     "CommentsPerDay": 150,
     "NumberOfComments": 40,
     "PostLink": "https://www.reddit.com/r/PoliticalScience/comments/1d76zmm/should_artificial_intelligence_be_given_human/"
-  },
-  {
-    "Subreddit": "r/agi",
-    "Title": "the_economist_what_happened_to_the",
-    "CommentsPerDay": 120,
-    "NumberOfComments": 172,
-    "PostLink": "https://www.reddit.com/r/agi/comments/1dupyjo/the_economist_what_happened_to_the/"
   }
 ]
