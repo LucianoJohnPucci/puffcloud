@@ -120,41 +120,47 @@
             }
         }
 
-        // Function to fetch and display the randomly selected subreddit analysis in responsive font
-        function displayRandomReddit() {
-            const url = './GitHubRandomReddit.json'; // Ensure this path is correct
+<script>
+    function displayRandomReddit() {
+        const url = './GitHubRandomReddit.json'; // Ensure this path is correct
 
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (Array.isArray(data) && data.length > 0) {
-                        const item = data[0];
-                        const content = `
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (Array.isArray(data) && data.length > 0) {
+                    const item = data[0]; // Display the first item in GitHubRandomReddit.json
+                    const content = `
+                        <div style="padding: 15px; border: 1px solid #ccc; border-radius: 8px; margin: 10px; background-color: #f9f9f9;">
                             <p><strong>Subreddit:</strong> ${item.Subreddit || "N/A"}</p>
                             <p><strong>Title:</strong> ${item.Title || "N/A"}</p>
                             <p><strong>Comments Per Day:</strong> ${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</p>
                             <p><strong>Number of Comments:</strong> ${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</p>
-                        `;
-                        document.getElementById("random-content").innerHTML = content;
-                        document.getElementById("random-link-frame").innerHTML = item.PostLink 
-                            ? `<a href="${item.PostLink}" target="_blank">${item.PostLink}</a>`
-                            : "No link available";
-                    } else {
-                        document.getElementById("random-content").textContent = "No data available";
-                        document.getElementById("random-link-frame").textContent = "No link available";
-                    }
-                })
-                .catch(error => {
-                    console.error("Error fetching random subreddit data:", error);
-                    document.getElementById("random-content").textContent = "Error loading data";
-                    document.getElementById("random-link-frame").textContent = "Error loading link";
-                });
-        }
+                        </div>
+                    `;
+                    document.getElementById("random-content").innerHTML = content;
+
+                    // Display the link in a separate frame for clarity
+                    document.getElementById("random-link-frame").innerHTML = item.PostLink 
+                        ? `<a href="${item.PostLink}" target="_blank">${item.PostLink}</a>`
+                        : "No link available";
+                } else {
+                    document.getElementById("random-content").textContent = "No data available";
+                    document.getElementById("random-link-frame").textContent = "No link available";
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching random subreddit data:", error);
+                document.getElementById("random-content").textContent = "Error loading data";
+                document.getElementById("random-link-frame").textContent = "Error loading link";
+            });
+    }
+</script>
+
 
         // URLs for each JSON file in the same directory
         const dataUrls = {
