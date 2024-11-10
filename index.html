@@ -112,8 +112,8 @@
                     if (Array.isArray(data) && data.length > 0) {
                         const item = data[0];
                         const content = `
-                            <p><strong>URL:</strong> ${item.URL!== null ? item.URL : "N/A"}</p>
-                            <p><strong>Subreddit:</strong> ${item.Subreddit || "N/A"}</p>
+                            <p><strong>Reddit:</strong> ${item.URL!== null ? item.URL : "N/A"}</p>
+                            <p><strong>Subreddit Link:</strong> ${item.Subreddit || "N/A"}</p>
                             <p><strong>Analysis:</strong> ${item.Title || "N/A"}</p>
                             <p><strong>Comments Per Day:</strong> ${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</p>
                             <p><strong>Number of Comments:</strong> ${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</p>
@@ -121,9 +121,9 @@
                         `;
                         document.getElementById("random-content").innerHTML = content;
                         document.getElementById("random-link-frame").innerHTML = `
-                            ${item.Link ? `<a href="${item.Link}" target="_blank">Post Link</a>` : "No link available"}<br>
-                            ${item.URL ? `<a href="${item.URL}" target="_blank">Additional URL</a>` : "No additional URL available"}
-                        `;
+                            ${item.Link ? `<a href="${item.Link}" target="_blank">Post Link</a>` : "No link available"}<br>`;
+                          <!${item.URL ? `<a href="${item.URL}" target="_blank">Additional URL</a>` : "No additional URL available"} -->
+                        
                     } else {
                         document.getElementById("random-content").textContent = "No data available";
                         document.getElementById("random-link-frame").textContent = "No link available";
