@@ -113,10 +113,10 @@
                         const item = data[0];
                         const content = `
                             <p><strong>Subreddit:</strong> ${item.Subreddit || "N/A"}</p>
-                            <p><strong>Analysis:</strong> ${item.Title || "N/A"}</p>
+                            <p><strong>Title:</strong> ${item.Title || "N/A"}</p>
                             <p><strong>Comments Per Day:</strong> ${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</p>
                             <p><strong>Number of Comments:</strong> ${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</p>
-                            <p><strong>SubReddit:</strong> ${item.URL!== null ? item.URL : "N/A"}</p>
+                            <p><strong>URL:</strong> ${item.URL!== null ? item.URL : "N/A"}</p>
                         `;
                         document.getElementById("random-content").innerHTML = content;
                         document.getElementById("random-link-frame").innerHTML = `
