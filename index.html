@@ -121,9 +121,9 @@
                         `;
                         document.getElementById("random-content").innerHTML = content;
                         document.getElementById("random-link-frame").innerHTML = `
-                            ${item.Link ? `<a href="${item.Link}" target="_blank">Post Link</a>` : "No link available"}<br>`;
-                          <!${item.URL ? `<a href="${item.URL}" target="_blank">Additional URL</a>` : "No additional URL available"} -->
-                        
+                            ${item.Link ? `<a href="${item.Link}" target="_blank">Post Link</a>` : "No link available"}<br>
+                            ${item.URL ? `<a href="${item.URL}" target="_blank">Additional URL</a>` : "No additional URL available"}
+                        `;
                     } else {
                         document.getElementById("random-content").textContent = "No data available";
                         document.getElementById("random-link-frame").textContent = "No link available";
@@ -158,7 +158,7 @@
                                             <th>Comments Per Day</th>
                                             <th>Number of Comments</th>
                                             <th>Post Link</th>
-                                            <th>Subreddit</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
