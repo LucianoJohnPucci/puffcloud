@@ -26,27 +26,38 @@
         #Graphs, #Email, #Data, #Video, #RandomReddit {
             display: none; /* Initially hide all sections */
         }
-        /* Center content on the RandomReddit page */
+        /* Responsive styling for RandomReddit page */
         #random-content {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 60vh;
-            font-size: 2em;
+            font-size: 1.5em;
             text-align: center;
             padding: 20px;
         }
-        /* Styling for the link frame at the bottom */
+        /* Styling for link frame at the bottom */
         #random-link-frame {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 20vh;
             border-top: 2px solid #ccc;
-            font-size: 1.2em;
+            font-size: 1em;
             padding: 10px;
             background-color: #f5f5f5;
+        }
+        /* Responsive font adjustments */
+        @media (max-width: 600px) {
+            #random-content {
+                font-size: 1.2em;
+                padding: 15px;
+            }
+            #random-link-frame {
+                font-size: 0.9em;
+                padding: 8px;
+            }
         }
     </style>
     <script>
@@ -61,7 +72,7 @@
             }
         }
 
-        // Function to fetch and display the randomly selected subreddit analysis in large font
+        // Function to fetch and display the randomly selected subreddit analysis in responsive font
         function displayRandomReddit() {
             const url = './GitHubRandomReddit.json'; // Ensure this path is correct
 
@@ -96,16 +107,19 @@
                     document.getElementById("random-link-frame").textContent = "Error loading link";
                 });
         }
+
+        // Set the initial section to RandomReddit
+        document.addEventListener("DOMContentLoaded", () => showSection("RandomReddit"));
     </script>
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav>
+        <a href="#" onclick="showSection('RandomReddit')">Random Reddit Analysis</a>
         <a href="#" onclick="showSection('Data')">Data</a>
         <a href="#" onclick="showSection('Graphs')">Graphs</a>
         <a href="#" onclick="showSection('Email')">Email it to Me</a>
         <a href="#" onclick="showSection('Video')">Video</a>
-        <a href="#" onclick="showSection('RandomReddit')">Random Reddit Analysis</a>
     </nav>
 
     <!-- Sections for each page -->
@@ -129,11 +143,11 @@
         <h2>Video</h2>
         <div class="window" id="youtube">
             <h2>YouTube Video</h2>
-            <iframe width="80%" height="80%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <!--  <iframe width="80%" height="80%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
         </div>
     </section>
 
-    <!-- New Section for Random Reddit Analysis in large font -->
+    <!-- New Section for Random Reddit Analysis with responsive styling -->
     <section id="RandomReddit">
         <div id="random-content">
             Loading...
