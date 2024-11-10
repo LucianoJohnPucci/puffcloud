@@ -1,12 +1,5 @@
 [
   {
-    "Subreddit": "Subreddit",
-    "Title": "TITLE",
-    "CommentsPerDay": "# of DAYS old",
-    "NumberOfComments": "# of Comments",
-    "PostLink": "POST LINK COMMENTS"
-  },
-  {
     "Subreddit": "r/movies",
     "Title": "ai_artificial_intelligence_is_a_goddamn",
     "CommentsPerDay": 1460,
