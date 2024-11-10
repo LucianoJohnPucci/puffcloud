@@ -73,9 +73,10 @@
             background-color: #f5f5f5;
             text-align: center;
         }
-        #reddit-image {
-            max-width: 100%;
-            height: auto;
+        #reddit-iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
             margin-top: 20px;
         }
 
@@ -102,7 +103,7 @@
             }
         }
 
-        // Fetch and display Reddit data along with the dynamic image
+        // Fetch and display Reddit data along with the embedded Reddit iframe
         function displayRandomReddit() {
             const url = './GitHubRandomReddit.json';
 
@@ -128,38 +129,24 @@
                             ${item.Link ? `<a href="${item.Link}" target="_blank">Post Link</a>` : "No link available"}
                         `;
 
-                        // Fetch the top image dynamically from the URL in `item.URL`
+                        // Display the Reddit post in an iframe
                         if (item.URL) {
-                            fetchRedditImage(item.URL);
+                            document.getElementById("reddit-iframe").src = item.URL;
                         } else {
-                            document.getElementById('reddit-image').alt = "Image not available";
+                            document.getElementById("reddit-iframe").src = "";
                         }
                     } else {
                         document.getElementById("random-content").textContent = "No data available";
                         document.getElementById("random-link-frame").textContent = "No link available";
+                        document.getElementById("reddit-iframe").src = "";
                     }
                 })
                 .catch(error => {
                     console.error("Error fetching random subreddit data:", error);
                     document.getElementById("random-content").textContent = "Error loading data";
                     document.getElementById("random-link-frame").textContent = "Error loading link";
+                    document.getElementById("reddit-iframe").src = "";
                 });
-        }
-
-        // Function to fetch and display the top image from a Reddit post URL
-        async function fetchRedditImage(postUrl) {
-            try {
-                const apiUrl = `${postUrl}.json`; // Convert Reddit URL to its JSON API version
-                const response = await fetch(apiUrl);
-                const data = await response.json();
-                
-                // Extract the image URL
-                const imgURL = data[0].data.children[0].data.preview.images[0].source.url;
-                document.getElementById('reddit-image').src = imgURL;
-            } catch (error) {
-                console.error("Error fetching Reddit image:", error);
-                document.getElementById('reddit-image').alt = "Image not available";
-            }
         }
 
         const dataUrls = {
@@ -249,8 +236,8 @@
         <div id="random-link-frame">
             Loading link...
         </div>
-        <!-- Placeholder for Reddit image -->
-        <img id="reddit-image" alt="Loading image...">
+        <!-- Placeholder for Reddit iframe -->
+        <iframe id="reddit-iframe" title="Reddit Post"></iframe>
     </section>
 </body>
 </html>
