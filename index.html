@@ -132,11 +132,11 @@
                     if (Array.isArray(data) && data.length > 0) {
                         const item = data[0]; // Display the first item in GitHubRandomReddit.json
                         const content = `
-                            <p><strong>Subreddit:</strong> ${item.Subreddit}</p>
-                            <p><strong>Title:</strong> ${item.Title}</p>
-                            <p><strong>Comments Per Day:</strong> ${item.CommentsPerDay}</p>
-                            <p><strong>Number of Comments:</strong> ${item.NumberOfComments}</p>
-                            <p><strong>Post Link:</strong> <a href="${item.PostLink}" target="_blank">${item.PostLink}</a></p>
+                            <p><strong>Subreddit:</strong> ${item.Subreddit || "N/A"}</p>
+                            <p><strong>Title:</strong> ${item.Title || "N/A"}</p>
+                            <p><strong>Comments Per Day:</strong> ${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</p>
+                            <p><strong>Number of Comments:</strong> ${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</p>
+                            <p><strong>Post Link:</strong> ${item.PostLink ? `<a href="${item.PostLink}" target="_blank">${item.PostLink}</a>` : "N/A"}</p>
                         `;
                         document.getElementById("random-subreddit").innerHTML = content;
                     } else {
@@ -185,11 +185,11 @@
                                 <tbody>
                                     ${data.map(item => `
                                         <tr>
-                                            <td>${item.Subreddit}</td>
-                                            <td>${item.Title}</td>
-                                            <td>${item.CommentsPerDay}</td>
-                                            <td>${item.NumberOfComments}</td>
-                                            <td><a href="${item.PostLink}" target="_blank">Link</a></td>
+                                            <td>${item.Subreddit || "N/A"}</td>
+                                            <td>${item.Title || "N/A"}</td>
+                                            <td>${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</td>
+                                            <td>${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</td>
+                                            <td>${item.PostLink ? `<a href="${item.PostLink}" target="_blank">Link</a>` : "N/A"}</td>
                                         </tr>
                                     `).join('')}
                                 </tbody>
@@ -202,7 +202,7 @@
                 })
                 .catch(error => {
                     console.error(`Error fetching data from ${url}:`, error);
-                    document.getElementById(elementId).textContent = `Error loading data: ${error.message}`;
+                    document.getElementId(elementId).textContent = `Error loading data: ${error.message}`;
                 });
         }
 
