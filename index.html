@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ai Reddit Listener</title>
+    <title>AI Reddit Listener</title>
     <style>
         /* Basic styling for navigation and sections */
         nav {
@@ -45,6 +45,12 @@
         <a href="#" onclick="showSection('Video')">Video</a>
     </nav>
 
+    <!-- New Section for Randomly Selected Subreddit Analysis -->
+    <section id="random-analysis" style="padding: 20px; border: 1px solid #ccc; margin: 20px; background-color: #f9f9f9;">
+        <h2>We have randomly taken a Sub-Reddit from the below tables and have analysed it here:</h2>
+        <div id="random-subreddit" style="font-size: 1.1em;">Loading...</div>
+    </section>
+
     <!-- Sections for each page -->
     <section id="Graphs" style="width: 100%; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <h2>Graphs</h2>
@@ -52,23 +58,19 @@
         <a href="./EntireSheetLandscape.pdf" target="_blank">Download Chart PDF</a>
     </section>
 
-
     <section id="Email">
         <h2>Email it to Me</h2>
-        <!-- Content to email PDFs or other information -->
         <button onclick="emailData()">Request Data via Email</button>
     </section>
 
     <section id="Data">
         <h2>Data</h2>
 
-
     <section id="Video">
         <h2>Video</h2>
-                    <!-- YouTube Video (top right, large square) -->
         <div class="window" id="youtube">
-        <h2>YouTube Video</h2>
-        <iframe width="80%" height="80%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h2>YouTube Video</h2>
+            <iframe width="80%" height="80%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </section>
 
@@ -78,113 +80,135 @@
         }
     </script>
 
-  <div class="dashboard">
-    <h1 style="text-align: center; font-size: 3em; font-weight: bold; margin-bottom: 20px;">Artificial Intelligence Reddit Dashboard</h1>
+    <!-- Existing Dashboard Section -->
+    <div class="dashboard">
+        <h1 style="text-align: center; font-size: 3em; font-weight: bold; margin-bottom: 20px;">Artificial Intelligence Reddit Dashboard</h1>
 
-    
-    <div class="window box1">
-      <h2>NewestSubReddits</h2>
-      <p id="newest-subreddits">Loading...</p>
+        <div class="window box1">
+            <h2>NewestSubReddits</h2>
+            <p id="newest-subreddits">Loading...</p>
+        </div>
+        <div class="window box2">
+            <h2>OldestSubReddits</h2>
+            <p id="oldest-subreddits">Loading...</p>
+        </div>
+        <div class="window box3">
+            <h2>HighestCommentsReddits</h2>
+            <p id="highest-comments">Loading...</p>
+        </div>
+        <div class="window box4">
+            <h2>HighestUpvoteReddits</h2>
+            <p id="highest-upvotes">Loading...</p>
+        </div>
+        <div class="window box5">
+            <h2>UpvotesPerDayReddits</h2>
+            <p id="upvotes-per-day">Loading...</p>
+        </div>
+        <div class="window box6">
+            <h2>EngageVelocityReddits</h2>
+            <p id="engage-velocity">Loading...</p>
+        </div>
+        <div class="window box7">
+            <h2>CommentsPerDayReddits</h2>
+            <p id="comments-per-day">Loading...</p>
+        </div>
     </div>
-    <div class="window box2">
-      <h2>OldestSubReddits</h2>
-      <p id="oldest-subreddits">Loading...</p>
-    </div>
-    <div class="window box3">
-      <h2>HighestCommentsReddits</h2>
-      <p id="highest-comments">Loading...</p>
-    </div>
-    <div class="window box4">
-      <h2>HighestUpvoteReddits</h2>
-      <p id="highest-upvotes">Loading...</p>
-    </div>
-    <div class="window box5">
-      <h2>UpvotesPerDayReddits</h2>
-      <p id="upvotes-per-day">Loading...</p>
-    </div>
-    <div class="window box6">
-      <h2>EngageVelocityReddits</h2>
-      <p id="engage-velocity">Loading...</p>
-    </div>
-    <div class="window box7">
-      <h2>CommentsPerDayReddits</h2>
-      <p id="comments-per-day">Loading...</p>
-    </div>
-  </div>
 
-  <script>
-    // Define relative URLs for each JSON file in the same directory
-    const dataUrls = {
-      newestSubreddits: './NewestSubReddits.json',
-      oldestSubreddits: './OldestSubReddits.json',
-      highestComments: './HighestCommentsReddits.json',
-      highestUpvotes: './HighestUpvoteReddits.json',
-      upvotesPerDay: './UpvotesPerDayReddits.json',
-      engageVelocity: './EngageVelocityReddits.json',
-      commentsPerDay: './CommentsPerDayReddits.json'
-    };
+    <script>
+        // URL for GitHubRandomReddit.json
+        const githubRandomRedditUrl = './GitHubRandomReddit.json';
 
-  // Function to fetch and display data for each frame
-  function fetchDataAndDisplay(url, elementId) {
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status} for ${url}`);
+        // Function to fetch and display the randomly selected subreddit analysis
+        function displayRandomSubreddit(url) {
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (Array.isArray(data) && data.length > 0) {
+                        const item = data[0]; // Display the first item in GitHubRandomReddit.json
+                        const content = `
+                            <p><strong>Subreddit:</strong> ${item.Subreddit}</p>
+                            <p><strong>Title:</strong> ${item.Title}</p>
+                            <p><strong>Comments Per Day:</strong> ${item.CommentsPerDay}</p>
+                            <p><strong>Number of Comments:</strong> ${item.NumberOfComments}</p>
+                            <p><strong>Post Link:</strong> <a href="${item.PostLink}" target="_blank">${item.PostLink}</a></p>
+                        `;
+                        document.getElementById("random-subreddit").innerHTML = content;
+                    } else {
+                        document.getElementById("random-subreddit").textContent = "No data available";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching random subreddit data:", error);
+                    document.getElementById("random-subreddit").textContent = "Error loading data";
+                });
         }
-        return response.json();
-      })
-      .then(data => {
-        if (Array.isArray(data) && data.length > 0) {
-          // Get the current timestamp
-          const timestamp = new Date().toLocaleString();
 
-          // Create a table structure with headers and timestamp
-          const table = `
-            <table style="width:100%; border-collapse: collapse;">
-              <caption style="font-weight: bold; padding: 8px; text-align: left;">Last Updated: ${timestamp}</caption>
-              <thead>
-                <tr>
-                  <th style="border: 1px solid #333; padding: 8px;"></th>
-                  <th style="border: 1px solid #333; padding: 8px;"></th>
-                  <th style="border: 1px solid #333; padding: 8px;"></th>
-                  <th style="border: 1px solid #333; padding: 8px;"></th>
-                  <th style="border: 1px solid #333; padding: 8px;"></th>
-                </tr>
-              </thead>
-              <tbody>
-                ${data.map(item => `
-                  <tr>
-                    <td style="border: 1px solid #333; padding: 8px;">${item.Subreddit}</td>
-                    <td style="border: 1px solid #333; padding: 8px;">${item.Title}</td>
-                    <td style="border: 1px solid #333; padding: 8px;">${item.CommentsPerDay}</td>
-                    <td style="border: 1px solid #333; padding: 8px;">${item.NumberOfComments}</td>
-                    <td style="border: 1px solid #333; padding: 8px;"><a href="${item.PostLink}" target="_blank">Link</a></td>
-                  </tr>
-                `).join('')}
-              </tbody>
-            </table>
-          `;
+        // Display the random subreddit analysis
+        displayRandomSubreddit(githubRandomRedditUrl);
 
-          document.getElementById(elementId).innerHTML = table;
-        } else {
-          document.getElementById(elementId).textContent = "No data available";
+        // URLs for each JSON file in the same directory
+        const dataUrls = {
+            newestSubreddits: './NewestSubReddits.json',
+            oldestSubreddits: './OldestSubReddits.json',
+            highestComments: './HighestCommentsReddits.json',
+            highestUpvotes: './HighestUpvoteReddits.json',
+            upvotesPerDay: './UpvotesPerDayReddits.json',
+            engageVelocity: './EngageVelocityReddits.json',
+            commentsPerDay: './CommentsPerDayReddits.json'
+        };
+
+        // Function to fetch and display data for each frame
+        function fetchDataAndDisplay(url, elementId) {
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (Array.isArray(data) && data.length > 0) {
+                        const timestamp = new Date().toLocaleString();
+                        const table = `
+                            <table style="width:100%; border-collapse: collapse;">
+                                <caption style="font-weight: bold; padding: 8px; text-align: left;">Last Updated: ${timestamp}</caption>
+                                <thead>
+                                    <tr>
+                                        <th>Subreddit</th>
+                                        <th>Title</th>
+                                        <th>CommentsPerDay</th>
+                                        <th>NumberOfComments</th>
+                                        <th>PostLink</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${data.map(item => `
+                                        <tr>
+                                            <td>${item.Subreddit}</td>
+                                            <td>${item.Title}</td>
+                                            <td>${item.CommentsPerDay}</td>
+                                            <td>${item.NumberOfComments}</td>
+                                            <td><a href="${item.PostLink}" target="_blank">Link</a></td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        `;
+                        document.getElementById(elementId).innerHTML = table;
+                    } else {
+                        document.getElementById(elementId).textContent = "No data available";
+                    }
+                })
+                .catch(error => {
+                    console.error(`Error fetching data from ${url}:`, error);
+                    document.getElementById(elementId).textContent = `Error loading data: ${error.message}`;
+                });
         }
-      })
-      .catch(error => {
-        console.error(`Error fetching data from ${url}:`, error);
-        document.getElementById(elementId).textContent = `Error loading data: ${error.message}`;
-      });
-  }
 
-    // Fetch and display data for each section
-    fetchDataAndDisplay(dataUrls.newestSubreddits, "newest-subreddits");
-    fetchDataAndDisplay(dataUrls.oldestSubreddits, "oldest-subreddits");
-    fetchDataAndDisplay(dataUrls.highestComments, "highest-comments");
-    fetchDataAndDisplay(dataUrls.highestUpvotes, "highest-upvotes");
-    fetchDataAndDisplay(dataUrls.upvotesPerDay, "upvotes-per-day");
-    fetchDataAndDisplay(dataUrls.engageVelocity, "engage-velocity");
-    fetchDataAndDisplay(dataUrls.commentsPerDay, "comments-per-day");
-  </script>
+        // Fetch and display data for each section
+        fetchDataAndDisplay(dataUrls.newestSubreddits, "newest-subreddits");
+        fetchDataAndDisplay(dataUrls.oldestSubreddits, "oldest-subreddits");
+        fetchDataAndDisplay(dataUrls.highestComments, "highest-comments");
+        fetchDataAndDisplay(dataUrls.highestUpvotes, "highest-upvotes");
+        fetchDataAndDisplay(dataUrls.upvotesPerDay, "upvotes-per-day");
+        fetchDataAndDisplay(dataUrls.engageVelocity, "engage-velocity");
+        fetchDataAndDisplay(dataUrls.commentsPerDay, "comments-per-day");
+    </script>
 
 </body>
 </html>
