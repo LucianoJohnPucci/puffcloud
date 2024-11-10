@@ -46,7 +46,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 1.5em;
+            font-size: 1.2em;
             text-align: center;
             padding: 20px;
             border-bottom: 1px solid #ccc;
@@ -120,47 +120,41 @@
             }
         }
 
-<script>
-    function displayRandomReddit() {
-        const url = './GitHubRandomReddit.json'; // Ensure this path is correct
+        // Function to fetch and display the randomly selected subreddit analysis in responsive font
+        function displayRandomReddit() {
+            const url = './GitHubRandomReddit.json'; // Ensure this path is correct
 
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (Array.isArray(data) && data.length > 0) {
-                    const item = data[0]; // Display the first item in GitHubRandomReddit.json
-                    const content = `
-                        <div style="padding: 15px; border: 1px solid #ccc; border-radius: 8px; margin: 10px; background-color: #f9f9f9;">
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (Array.isArray(data) && data.length > 0) {
+                        const item = data[0];
+                        const content = `
                             <p><strong>Subreddit:</strong> ${item.Subreddit || "N/A"}</p>
                             <p><strong>Title:</strong> ${item.Title || "N/A"}</p>
                             <p><strong>Comments Per Day:</strong> ${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</p>
                             <p><strong>Number of Comments:</strong> ${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</p>
-                        </div>
-                    `;
-                    document.getElementById("random-content").innerHTML = content;
-
-                    // Display the link in a separate frame for clarity
-                    document.getElementById("random-link-frame").innerHTML = item.PostLink 
-                        ? `<a href="${item.PostLink}" target="_blank">${item.PostLink}</a>`
-                        : "No link available";
-                } else {
-                    document.getElementById("random-content").textContent = "No data available";
-                    document.getElementById("random-link-frame").textContent = "No link available";
-                }
-            })
-            .catch(error => {
-                console.error("Error fetching random subreddit data:", error);
-                document.getElementById("random-content").textContent = "Error loading data";
-                document.getElementById("random-link-frame").textContent = "Error loading link";
-            });
-    }
-</script>
-
+                        `;
+                        document.getElementById("random-content").innerHTML = content;
+                        document.getElementById("random-link-frame").innerHTML = item.PostLink 
+                            ? `<a href="${item.PostLink}" target="_blank">${item.PostLink}</a>`
+                            : "No link available";
+                    } else {
+                        document.getElementById("random-content").textContent = "No data available";
+                        document.getElementById("random-link-frame").textContent = "No link available";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching random subreddit data:", error);
+                    document.getElementById("random-content").textContent = "Error loading data";
+                    document.getElementById("random-link-frame").textContent = "Error loading link";
+                });
+        }
 
         // URLs for each JSON file in the same directory
         const dataUrls = {
@@ -185,11 +179,11 @@
                                     <caption>${key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}</caption>
                                     <thead>
                                         <tr>
+                                            <th>Subreddit</th>
                                             <th>Title</th>
                                             <th>CommentsPerDay</th>
                                             <th>NumberOfComments</th>
                                             <th>PostLink</th>
-                                            <th>Subreddit</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -199,7 +193,7 @@
                                                 <td>${item.Title || "N/A"}</td>
                                                 <td>${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</td>
                                                 <td>${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</td>
-                                                <td>${item.PostLink ? `<a href="${item.Subreddit}" target="_blank">Link</a>` : "N/A"}</td>
+                                                <td>${item.PostLink ? `<a href="${item.PostLink}" target="_blank">Link</a>` : "N/A"}</td>
                                             </tr>
                                         `).join('')}
                                     </tbody>
