@@ -116,13 +116,19 @@
 
     <script>
         // URL for GitHubRandomReddit.json
-        const githubRandomRedditUrl = './GitHubRandomReddit.json';
+        const githubRandomRedditUrl = './GitHubRandomReddit.json';  // Ensure this path is correct
 
         // Function to fetch and display the randomly selected subreddit analysis
         function displayRandomSubreddit(url) {
             fetch(url)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(data => {
+                    console.log("Data fetched successfully:", data); // Log the data to confirm it is fetched
                     if (Array.isArray(data) && data.length > 0) {
                         const item = data[0]; // Display the first item in GitHubRandomReddit.json
                         const content = `
