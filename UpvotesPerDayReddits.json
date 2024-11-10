@@ -1,12 +1,5 @@
 [
   {
-    "Subreddit": "Subreddit",
-    "Title": "TITLE",
-    "CommentsPerDay": "UPVOTES PER DAY",
-    "NumberOfComments": "# of Upvotes",
-    "PostLink": "POST LINK COMMENTS"
-  },
-  {
     "Subreddit": "r/AskReddit",
     "Title": "what_do_you_think_about_peoples_fear_of",
     "CommentsPerDay": 3.4166666666666665,
@@ -47,13 +40,6 @@
     "CommentsPerDay": 0.6083333333333333,
     "NumberOfComments": 73,
     "PostLink": "https://www.reddit.com/r/agi/comments/1dupyjo/the_economist_what_happened_to_the/"
-  },
-  {
-    "Subreddit": "r/worldnews",
-    "Title": "artificial_intelligence_raises_ukrainian_drone",
-    "CommentsPerDay": 0.5833333333333334,
-    "NumberOfComments": 14,
-    "PostLink": "https://www.reddit.com/r/worldnews/comments/1g3uurp/artificial_intelligence_raises_ukrainian_drone/"
   },
   {
     "Subreddit": "r/compsci",
@@ -180,5 +166,12 @@
     "CommentsPerDay": 0.028767123287671233,
     "NumberOfComments": 21,
     "PostLink": "https://www.reddit.com/r/pcmasterrace/comments/1fign6i/in_regards_to_the_nvidia_ceo_saying_we_cant_do/"
+  },
+  {
+    "Subreddit": "r/AnarchyChess",
+    "Title": "i_had_an_artificial_intelligence_create_a_chess",
+    "CommentsPerDay": 0.024657534246575342,
+    "NumberOfComments": 9,
+    "PostLink": "https://www.reddit.com/r/AnarchyChess/comments/17aibq7/i_had_an_artificial_intelligence_create_a_chess/"
   }
 ]
