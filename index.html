@@ -117,8 +117,7 @@
                             <p><strong>Analysis:?</strong> ${item.Title || "N/A"}</p>
                             <p><strong>Comments Per Day:?</strong> ${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</p>
                             <p><strong>Number of Comments:?</strong> ${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</p>
-                            <p><strong>highestUpvoteReddits:?</strong> ${item.highestUpvoteReddits !== null ? item.highestUpvoteReddits : "N/A"}</p>
-                            <p><strong>UpvotesPerDayReddits.json:?</strong> ${item.UpvotesPerDayReddits.json !== null ? item.UpvotesPerDayReddits.json : "N/A"}</p>
+                            
                         `;
                         document.getElementById("random-content").innerHTML = content;
                         document.getElementById("random-link-frame").innerHTML = `
@@ -140,10 +139,7 @@
         const dataUrls = {
             newestSubreddits: './NewestSubReddits.json',
             oldestSubreddits: './OldestSubReddits.json',
-            highestComments: './HighestCommentsReddits.json',
-            highestUpvoteReddits: './HighestUpvoteReddits.json',
-            commentsperday: './CommentsPerDayReddits.json',
-            UpvotesPerDay: './UpvotesPerDayReddits.json'
+            highestComments: './HighestCommentsReddits.json'
         };
 
         function loadDataTables() {
