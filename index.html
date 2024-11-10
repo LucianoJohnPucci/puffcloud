@@ -73,12 +73,6 @@
             background-color: #f5f5f5;
             text-align: center;
         }
-        #reddit-iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
-            margin-top: 20px;
-        }
 
         /* Adjustments for smaller screens */
         @media (max-width: 768px) {
@@ -103,7 +97,7 @@
             }
         }
 
-        // Fetch and display Reddit data along with the embedded Reddit iframe
+        // Fetch and display Reddit data along with a clickable link to the post
         function displayRandomReddit() {
             const url = './GitHubRandomReddit.json';
 
@@ -118,34 +112,25 @@
                     if (Array.isArray(data) && data.length > 0) {
                         const item = data[0];
                         const content = `
-                            <p><strong>Reddit:</strong> ${item.URL || "N/A"}</p>
-                            <p><strong>Subreddit Title:</strong> ${item.Subreddit || "N/A"}</p>
-                            <p><strong>Analysis:</strong> ${item.Title || "N/A"}</p>
-                            <p><strong>Comments Per Day:</strong> ${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</p>
-                            <p><strong>Number of Comments:</strong> ${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</p>
+                            <p><strong>📜Reddit:</strong> ${item.URL || "N/A"}</p>
+                            <p><strong>📚Subreddit Title:</strong> ${item.Subreddit || "N/A"}</p>
+                            <p><strong>🤔Analysis:</strong> ${item.Title || "N/A"}</p>
+                            <p><strong>💬Comments Per Day:</strong> ${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</p>
+                            <p><strong>🧮Number of Comments:</strong> ${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</p>
                         `;
                         document.getElementById("random-content").innerHTML = content;
                         document.getElementById("random-link-frame").innerHTML = `
-                            ${item.Link ? `<a href="${item.Link}" target="_blank">Post Link</a>` : "No link available"}
+                            ${item.URL ? `<a href="${item.URL}" target="_blank">View Full Post on Reddit</a>` : "No link available"}
                         `;
-
-                        // Display the Reddit post in an iframe
-                        if (item.URL) {
-                            document.getElementById("reddit-iframe").src = item.URL;
-                        } else {
-                            document.getElementById("reddit-iframe").src = "";
-                        }
                     } else {
                         document.getElementById("random-content").textContent = "No data available";
                         document.getElementById("random-link-frame").textContent = "No link available";
-                        document.getElementById("reddit-iframe").src = "";
                     }
                 })
                 .catch(error => {
                     console.error("Error fetching random subreddit data:", error);
                     document.getElementById("random-content").textContent = "Error loading data";
                     document.getElementById("random-link-frame").textContent = "Error loading link";
-                    document.getElementById("reddit-iframe").src = "";
                 });
         }
 
@@ -236,8 +221,6 @@
         <div id="random-link-frame">
             Loading link...
         </div>
-        <!-- Placeholder for Reddit iframe -->
-        <iframe id="reddit-iframe" title="Reddit Post"></iframe>
     </section>
 </body>
 </html>
