@@ -23,8 +23,18 @@
             display: none;
             padding: 20px;
         }
-        #Graphs, #Email, #Data, #Video {
+        #Graphs, #Email, #Data, #Video, #RandomReddit {
             display: none; /* Initially hide all sections */
+        }
+        /* Center content on the RandomReddit page */
+        #random-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+            font-size: 2em;
+            text-align: center;
         }
     </style>
     <script>
@@ -33,23 +43,54 @@
             document.querySelectorAll("section").forEach(sec => sec.style.display = "none");
             // Show the selected section
             document.getElementById(sectionId).style.display = "block";
+            // Load data if RandomReddit is selected
+            if (sectionId === "RandomReddit") {
+                displayRandomReddit();
+            }
+        }
+
+        // Function to fetch and display the randomly selected subreddit analysis in large font
+        function displayRandomReddit() {
+            const url = './GitHubRandomReddit.json'; // Ensure this path is correct
+
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (Array.isArray(data) && data.length > 0) {
+                        const item = data[0]; // Display the first item in GitHubRandomReddit.json
+                        const content = `
+                            <p><strong>Subreddit:</strong> ${item.Subreddit || "N/A"}</p>
+                            <p><strong>Title:</strong> ${item.Title || "N/A"}</p>
+                            <p><strong>Comments Per Day:</strong> ${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</p>
+                            <p><strong>Number of Comments:</strong> ${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</p>
+                            <p><strong>Post Link:</strong> ${item.PostLink ? `<a href="${item.PostLink}" target="_blank">${item.PostLink}</a>` : "N/A"}</p>
+                        `;
+                        document.getElementById("random-content").innerHTML = content;
+                    } else {
+                        document.getElementById("random-content").textContent = "No data available";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching random subreddit data:", error);
+                    document.getElementById("random-content").textContent = "Error loading data";
+                });
         }
     </script>
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav>
-        <a href="#" onclick="showSection('Data')">Data</a>  
+        <a href="#" onclick="showSection('Data')">Data</a>
         <a href="#" onclick="showSection('Graphs')">Graphs</a>
         <a href="#" onclick="showSection('Email')">Email it to Me</a>
         <a href="#" onclick="showSection('Video')">Video</a>
+        <a href="#" onclick="showSection('RandomReddit')">Random Reddit Analysis</a>
     </nav>
-
-    <!-- New Section for Randomly Selected Subreddit Analysis -->
-    <section id="random-analysis" style="padding: 20px; border: 1px solid #ccc; margin: 20px; background-color: #f9f9f9;">
-        <h2>We have randomly taken a Sub-Reddit from the below tables and have analysed it here:</h2>
-        <div id="random-subreddit" style="font-size: 1.1em;">Loading...</div>
-    </section>
 
     <!-- Sections for each page -->
     <section id="Graphs" style="width: 100%; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
@@ -65,6 +106,8 @@
 
     <section id="Data">
         <h2>Data</h2>
+        <!-- Placeholder for Data content -->
+    </section>
 
     <section id="Video">
         <h2>Video</h2>
@@ -74,147 +117,17 @@
         </div>
     </section>
 
+    <!-- New Section for Random Reddit Analysis in large font -->
+    <section id="RandomReddit">
+        <div id="random-content">
+            Loading...
+        </div>
+    </section>
+
     <script>
         function emailData() {
             alert("Functionality to email data will be implemented here.");
         }
     </script>
-
-    <!-- Existing Dashboard Section -->
-    <div class="dashboard">
-        <h1 style="text-align: center; font-size: 3em; font-weight: bold; margin-bottom: 20px;">Artificial Intelligence Reddit Dashboard</h1>
-
-        <div class="window box1">
-            <h2>NewestSubReddits</h2>
-            <p id="newest-subreddits">Loading...</p>
-        </div>
-        <div class="window box2">
-            <h2>OldestSubReddits</h2>
-            <p id="oldest-subreddits">Loading...</p>
-        </div>
-        <div class="window box3">
-            <h2>HighestCommentsReddits</h2>
-            <p id="highest-comments">Loading...</p>
-        </div>
-        <div class="window box4">
-            <h2>HighestUpvoteReddits</h2>
-            <p id="highest-upvotes">Loading...</p>
-        </div>
-        <div class="window box5">
-            <h2>UpvotesPerDayReddits</h2>
-            <p id="upvotes-per-day">Loading...</p>
-        </div>
-        <div class="window box6">
-            <h2>EngageVelocityReddits</h2>
-            <p id="engage-velocity">Loading...</p>
-        </div>
-        <div class="window box7">
-            <h2>CommentsPerDayReddits</h2>
-            <p id="comments-per-day">Loading...</p>
-        </div>
-    </div>
-
-    <script>
-        // URL for GitHubRandomReddit.json
-        const githubRandomRedditUrl = './GitHubRandomReddit.json';  // Ensure this path is correct
-
-        // Function to fetch and display the randomly selected subreddit analysis
-        function displayRandomSubreddit(url) {
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log("Data fetched successfully:", data); // Log the data to confirm it is fetched
-                    if (Array.isArray(data) && data.length > 0) {
-                        const item = data[0]; // Display the first item in GitHubRandomReddit.json
-                        const content = `
-                            <p><strong>Subreddit:</strong> ${item.Subreddit || "N/A"}</p>
-                            <p><strong>Title:</strong> ${item.Title || "N/A"}</p>
-                            <p><strong>Comments Per Day:</strong> ${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</p>
-                            <p><strong>Number of Comments:</strong> ${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</p>
-                            <p><strong>Post Link:</strong> ${item.PostLink ? `<a href="${item.PostLink}" target="_blank">${item.PostLink}</a>` : "N/A"}</p>
-                        `;
-                        document.getElementById("random-subreddit").innerHTML = content;
-                    } else {
-                        document.getElementById("random-subreddit").textContent = "No data available";
-                    }
-                })
-                .catch(error => {
-                    console.error("Error fetching random subreddit data:", error);
-                    document.getElementById("random-subreddit").textContent = "Error loading data";
-                });
-        }
-
-        // Display the random subreddit analysis
-        displayRandomSubreddit(githubRandomRedditUrl);
-
-        // URLs for each JSON file in the same directory
-        const dataUrls = {
-            newestSubreddits: './NewestSubReddits.json',
-            oldestSubreddits: './OldestSubReddits.json',
-            highestComments: './HighestCommentsReddits.json',
-            highestUpvotes: './HighestUpvoteReddits.json',
-            upvotesPerDay: './UpvotesPerDayReddits.json',
-            engageVelocity: './EngageVelocityReddits.json',
-            commentsPerDay: './CommentsPerDayReddits.json'
-        };
-
-        // Function to fetch and display data for each frame
-        function fetchDataAndDisplay(url, elementId) {
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    if (Array.isArray(data) && data.length > 0) {
-                        const timestamp = new Date().toLocaleString();
-                        const table = `
-                            <table style="width:100%; border-collapse: collapse;">
-                                <caption style="font-weight: bold; padding: 8px; text-align: left;">Last Updated: ${timestamp}</caption>
-                                <thead>
-                                    <tr>
-                                        <th>Subreddit</th>
-                                        <th>Title</th>
-                                        <th>CommentsPerDay</th>
-                                        <th>NumberOfComments</th>
-                                        <th>PostLink</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ${data.map(item => `
-                                        <tr>
-                                            <td>${item.Subreddit || "N/A"}</td>
-                                            <td>${item.Title || "N/A"}</td>
-                                            <td>${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</td>
-                                            <td>${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</td>
-                                            <td>${item.PostLink ? `<a href="${item.PostLink}" target="_blank">Link</a>` : "N/A"}</td>
-                                        </tr>
-                                    `).join('')}
-                                </tbody>
-                            </table>
-                        `;
-                        document.getElementById(elementId).innerHTML = table;
-                    } else {
-                        document.getElementById(elementId).textContent = "No data available";
-                    }
-                })
-                .catch(error => {
-                    console.error(`Error fetching data from ${url}:`, error);
-                    document.getElementId(elementId).textContent = `Error loading data: ${error.message}`;
-                });
-        }
-
-        // Fetch and display data for each section
-        fetchDataAndDisplay(dataUrls.newestSubreddits, "newest-subreddits");
-        fetchDataAndDisplay(dataUrls.oldestSubreddits, "oldest-subreddits");
-        fetchDataAndDisplay(dataUrls.highestComments, "highest-comments");
-        fetchDataAndDisplay(dataUrls.highestUpvotes, "highest-upvotes");
-        fetchDataAndDisplay(dataUrls.upvotesPerDay, "upvotes-per-day");
-        fetchDataAndDisplay(dataUrls.engageVelocity, "engage-velocity");
-        fetchDataAndDisplay(dataUrls.commentsPerDay, "comments-per-day");
-    </script>
-
 </body>
 </html>
