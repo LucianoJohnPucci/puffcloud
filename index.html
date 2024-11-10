@@ -113,10 +113,10 @@
                         const item = data[0];
                         const content = `
                             <p><strong>Reddit:</strong> ${item.URL!== null ? item.URL : "N/A"}</p>
-                            <p><strong>Subreddit Title:?</strong> ${item.Subreddit || "N/A"}</p>
-                            <p><strong>Analysis:?</strong> ${item.Title || "N/A"}</p>
-                            <p><strong>Comments Per Day:?</strong> ${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</p>
-                            <p><strong>Number of Comments:?</strong> ${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</p>
+                            <p><strong>Subreddit Title:📚</strong> ${item.Subreddit || "N/A"}</p>
+                            <p><strong>Analysis:🧠</strong> ${item.Title || "N/A"}</p>
+                            <p><strong>Comments Per Day:📣</strong> ${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</p>
+                            <p><strong>Number of Comments:🧮</strong> ${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</p>
                             
                         `;
                         document.getElementById("random-content").innerHTML = content;
@@ -162,12 +162,12 @@
                                     <tbody>
                                         ${data.map(item => `
                                             <tr>
+                                                <td>${item.Subreddit || "N/A"}</td>
                                                 <td>${item.Title || "N/A"}</td>
                                                 <td>${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</td>
                                                 <td>${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</td>
                                                 <td>${item.Link ? `<a href="${item.Link}" target="_blank">Link</a>` : "N/A"}</td>
                                                 <td>${item.URL ? `<a href="${item.URL}" target="_blank">URL</a>` : "N/A"}</td>
-                                                <td>${item.Subreddit || "N/A"}</td>
                                             </tr>
                                         `).join('')}
                                     </tbody>
