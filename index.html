@@ -151,23 +151,23 @@
                                     <caption>${key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}</caption>
                                     <thead>
                                         <tr>
-                                            <th>Subreddit</th>
+                                            <th>URL</th>
                                             <th>Title</th>
                                             <th>Comments Per Day</th>
                                             <th>Number of Comments</th>
                                             <th>Post Link</th>
-                                            <th>URL</th>
+                                            <th>Subreddit</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         ${data.map(item => `
                                             <tr>
-                                                <td>${item.Subreddit || "N/A"}</td>
+                                                <td>${item.URL ? `<a href="${item.URL}" target="_blank">URL</a>` : "N/A"}</td>
                                                 <td>${item.Title || "N/A"}</td>
                                                 <td>${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</td>
                                                 <td>${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</td>
                                                 <td>${item.Link ? `<a href="${item.Link}" target="_blank">Link</a>` : "N/A"}</td>
-                                                <td>${item.URL ? `<a href="${item.URL}" target="_blank">URL</a>` : "N/A"}</td>
+                                                <td>${item.Subreddit || "N/A"}</td>
                                             </tr>
                                         `).join('')}
                                     </tbody>
