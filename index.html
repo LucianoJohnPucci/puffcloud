@@ -46,7 +46,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 1.2em;
+            font-size: 1.5em;
             text-align: center;
             padding: 20px;
             border-bottom: 1px solid #ccc;
@@ -179,11 +179,11 @@
                                     <caption>${key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}</caption>
                                     <thead>
                                         <tr>
-                                            <th>Subreddit</th>
                                             <th>Title</th>
                                             <th>CommentsPerDay</th>
                                             <th>NumberOfComments</th>
                                             <th>PostLink</th>
+                                            <th>Subreddit</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -193,7 +193,7 @@
                                                 <td>${item.Title || "N/A"}</td>
                                                 <td>${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</td>
                                                 <td>${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</td>
-                                                <td>${item.PostLink ? `<a href="${item.PostLink}" target="_blank">Link</a>` : "N/A"}</td>
+                                                <td>${item.PostLink ? `<a href="${item.Subreddit}" target="_blank">Link</a>` : "N/A"}</td>
                                             </tr>
                                         `).join('')}
                                     </tbody>
