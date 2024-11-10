@@ -1,19 +1,5 @@
 [
   {
-    "Subreddit": "Subreddit",
-    "Title": "TITLE",
-    "CommentsPerDay": "COMMENTS PER DAY",
-    "NumberOfComments": "# of Comments",
-    "PostLink": "POST LINK COMMENTS"
-  },
-  {
-    "Subreddit": "r/worldnews",
-    "Title": "artificial_intelligence_raises_ukrainian_drone",
-    "CommentsPerDay": 40.041666666666664,
-    "NumberOfComments": 961,
-    "PostLink": "https://www.reddit.com/r/worldnews/comments/1g3uurp/artificial_intelligence_raises_ukrainian_drone/"
-  },
-  {
     "Subreddit": "r/AskReddit",
     "Title": "what_do_you_think_about_peoples_fear_of",
     "CommentsPerDay": 8.933333333333334,
@@ -180,5 +166,12 @@
     "CommentsPerDay": 0.26666666666666666,
     "NumberOfComments": 40,
     "PostLink": "https://www.reddit.com/r/PoliticalScience/comments/1d76zmm/should_artificial_intelligence_be_given_human/"
+  },
+  {
+    "Subreddit": "r/MachineLearning",
+    "Title": "d_why_do_we_say_artificial_intelligence_instead",
+    "CommentsPerDay": 0.22592592592592592,
+    "NumberOfComments": 61,
+    "PostLink": "https://www.reddit.com/r/MachineLearning/comments/1ao7b31/d_why_do_we_say_artificial_intelligence_instead/"
   }
 ]
