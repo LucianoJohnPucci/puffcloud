@@ -97,13 +97,12 @@
             document.getElementById(sectionId).style.display = "block";
             if (sectionId === "RandomReddit") {
                 displayRandomReddit();
-                fetchRedditImage();
             } else if (sectionId === "Data") {
                 loadDataTables();
             }
         }
 
-        // Fetch and display Reddit data
+        // Fetch and display Reddit data along with the dynamic image
         function displayRandomReddit() {
             const url = './GitHubRandomReddit.json';
 
@@ -128,6 +127,13 @@
                         document.getElementById("random-link-frame").innerHTML = `
                             ${item.Link ? `<a href="${item.Link}" target="_blank">Post Link</a>` : "No link available"}
                         `;
+
+                        // Fetch the top image dynamically from the URL in `item.URL`
+                        if (item.URL) {
+                            fetchRedditImage(item.URL);
+                        } else {
+                            document.getElementById('reddit-image').alt = "Image not available";
+                        }
                     } else {
                         document.getElementById("random-content").textContent = "No data available";
                         document.getElementById("random-link-frame").textContent = "No link available";
@@ -140,14 +146,14 @@
                 });
         }
 
-        // Fetch and display top image from specific Reddit post
-        async function fetchRedditImage() {
-            const imageUrl = 'https://www.reddit.com/r/nextfuckinglevel/comments/149aqec/auto_valet_parking_with_robots_and_artificial/.json';
-
+        // Function to fetch and display the top image from a Reddit post URL
+        async function fetchRedditImage(postUrl) {
             try {
-                const response = await fetch(imageUrl);
+                const apiUrl = `${postUrl}.json`; // Convert Reddit URL to its JSON API version
+                const response = await fetch(apiUrl);
                 const data = await response.json();
                 
+                // Extract the image URL
                 const imgURL = data[0].data.children[0].data.preview.images[0].source.url;
                 document.getElementById('reddit-image').src = imgURL;
             } catch (error) {
@@ -248,4 +254,3 @@
     </section>
 </body>
 </html>
-
