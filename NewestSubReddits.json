@@ -1,12 +1,5 @@
 [
   {
-    "Subreddit": "Subreddit",
-    "Title": "TITLE",
-    "CommentsPerDay": "# of DAYS old",
-    "NumberOfComments": "# of Comments",
-    "PostLink": "POST LINK COMMENTS"
-  },
-  {
     "Subreddit": "r/AskReddit",
     "Title": "what_do_you_think_about_peoples_fear_of",
     "CommentsPerDay": 60,
