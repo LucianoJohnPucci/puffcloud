@@ -7,13 +7,6 @@
     "PostLink": "POST LINK COMMENTS"
   },
   {
-    "Subreddit": "r/worldnews",
-    "Title": "artificial_intelligence_raises_ukrainian_drone",
-    "CommentsPerDay": 24,
-    "NumberOfComments": 961,
-    "PostLink": "https://www.reddit.com/r/worldnews/comments/1g3uurp/artificial_intelligence_raises_ukrainian_drone/"
-  },
-  {
     "Subreddit": "r/AskReddit",
     "Title": "what_do_you_think_about_peoples_fear_of",
     "CommentsPerDay": 60,
@@ -180,5 +173,12 @@
     "CommentsPerDay": 365,
     "NumberOfComments": 332,
     "PostLink": "https://www.reddit.com/r/ksi/comments/13y58ob/i_cloned_ksis_voice_using_artificial_intelligence/"
+  },
+  {
+    "Subreddit": "r/nextfuckinglevel",
+    "Title": "auto_valet_parking_with_robots_and_artificial",
+    "CommentsPerDay": 365,
+    "NumberOfComments": 832,
+    "PostLink": "https://www.reddit.com/r/nextfuckinglevel/comments/149aqec/auto_valet_parking_with_robots_and_artificial/"
   }
 ]
