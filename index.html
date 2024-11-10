@@ -35,33 +35,6 @@
             background-color: #fdfdfd;
         }
 
-        /* Default hidden state for all sections except RandomReddit */
-        #Graphs, #Email, #Data, #Video, #RandomReddit {
-            display: none; /* Initially hide all sections */
-        }
-
-        /* Responsive styling for RandomReddit content */
-        #random-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2em;
-            text-align: center;
-            padding: 20px;
-            border-bottom: 1px solid #ccc;
-        }
-        /* Styling for link frame at the bottom */
-        #random-link-frame {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1em;
-            padding: 15px;
-            background-color: #f5f5f5;
-            text-align: center;
-        }
-
         /* Table styling */
         .data-table {
             width: 100%;
@@ -80,7 +53,28 @@
             padding: 8px;
         }
 
-        /* Adjustments for tablets and smaller screens */
+        /* Responsive styling */
+        #random-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+        #random-link-frame {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1em;
+            padding: 15px;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+
+        /* Adjustments for smaller screens */
         @media (max-width: 768px) {
             #random-content {
                 font-size: 1em;
@@ -91,28 +85,11 @@
                 padding: 10px;
             }
         }
-        /* Adjustments for mobile devices */
-        @media (max-width: 480px) {
-            nav {
-                flex-direction: column;
-            }
-            #random-content {
-                font-size: 0.9em;
-                padding: 10px;
-            }
-            #random-link-frame {
-                font-size: 0.8em;
-                padding: 8px;
-            }
-        }
     </style>
     <script>
         function showSection(sectionId) {
-            // Hide all sections
             document.querySelectorAll("section").forEach(sec => sec.style.display = "none");
-            // Show the selected section
             document.getElementById(sectionId).style.display = "block";
-            // Load data if RandomReddit or Data is selected
             if (sectionId === "RandomReddit") {
                 displayRandomReddit();
             } else if (sectionId === "Data") {
@@ -120,9 +97,9 @@
             }
         }
 
-        // Function to fetch and display the randomly selected subreddit analysis in responsive font
+        // Display random Reddit data
         function displayRandomReddit() {
-            const url = './GitHubRandomReddit.json'; // Ensure this path is correct
+            const url = './GitHubRandomReddit.json';
 
             fetch(url)
                 .then(response => {
@@ -141,9 +118,10 @@
                             <p><strong>Number of Comments:</strong> ${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</p>
                         `;
                         document.getElementById("random-content").innerHTML = content;
-                        document.getElementById("random-link-frame").innerHTML = item.PostLink 
-                            ? `<a href="${item.PostLink}" target="_blank">${item.PostLink}</a>`
-                            : "No link available";
+                        document.getElementById("random-link-frame").innerHTML = `
+                            ${item.Link ? `<a href="${item.Link}" target="_blank">Post Link</a>` : "No link available"}<br>
+                            ${item.URL ? `<a href="${item.URL}" target="_blank">Additional URL</a>` : "No additional URL available"}
+                        `;
                     } else {
                         document.getElementById("random-content").textContent = "No data available";
                         document.getElementById("random-link-frame").textContent = "No link available";
@@ -156,18 +134,12 @@
                 });
         }
 
-        // URLs for each JSON file in the same directory
         const dataUrls = {
             newestSubreddits: './NewestSubReddits.json',
             oldestSubreddits: './OldestSubReddits.json',
-            highestComments: './HighestCommentsReddits.json',
-            highestUpvotes: './HighestUpvoteReddits.json',
-            upvotesPerDay: './UpvotesPerDayReddits.json',
-            engageVelocity: './EngageVelocityReddits.json',
-            commentsPerDay: './CommentsPerDayReddits.json'
+            highestComments: './HighestCommentsReddits.json'
         };
 
-        // Function to load data and display tables in the Data section
         function loadDataTables() {
             Object.keys(dataUrls).forEach(key => {
                 fetch(dataUrls[key])
@@ -179,24 +151,24 @@
                                     <caption>${key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}</caption>
                                     <thead>
                                         <tr>
-                                        <th>Subreddit</th>
-                                        <th>Title</th>
-                                        <th>Comments Per Day</th>
-                                        <th>Number of Comments</th>
-                                        <th>Post Link</th>
-                                        <th>URL</th> <!-- New URL column header -->
-                                    </tr>
+                                            <th>Subreddit</th>
+                                            <th>Title</th>
+                                            <th>Comments Per Day</th>
+                                            <th>Number of Comments</th>
+                                            <th>Post Link</th>
+                                            <th>URL</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
                                         ${data.map(item => `
-                                          <tr>
-                                            <td>${item.Subreddit || "N/A"}</td>
-                                            <td>${item.Title || "N/A"}</td>
-                                            <td>${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</td>
-                                            <td>${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</td>
-                                            <td>${item.Link ? `<a href="${item.Link}" target="_blank">Link</a>` : "N/A"}</td>
-                                            <td>${item.URL ? `<a href="${item.URL}" target="_blank">URL</a>` : "N/A"}</td> <!-- New URL data cell -->
-                                          </tr>
+                                            <tr>
+                                                <td>${item.Subreddit || "N/A"}</td>
+                                                <td>${item.Title || "N/A"}</td>
+                                                <td>${item.CommentsPerDay !== null ? item.CommentsPerDay : "N/A"}</td>
+                                                <td>${item.NumberOfComments !== null ? item.NumberOfComments : "N/A"}</td>
+                                                <td>${item.Link ? `<a href="${item.Link}" target="_blank">Link</a>` : "N/A"}</td>
+                                                <td>${item.URL ? `<a href="${item.URL}" target="_blank">URL</a>` : "N/A"}</td>
+                                            </tr>
                                         `).join('')}
                                     </tbody>
                                 </table>
@@ -213,12 +185,10 @@
             });
         }
 
-        // Set the initial section to RandomReddit
         document.addEventListener("DOMContentLoaded", () => showSection("RandomReddit"));
     </script>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav>
         <a href="#" onclick="showSection('RandomReddit')">Random Reddit Analysis</a>
         <a href="#" onclick="showSection('Data')">Data</a>
@@ -227,34 +197,23 @@
         <a href="#" onclick="showSection('Video')">Video</a>
     </nav>
 
-    <!-- Sections for each page -->
     <section id="Graphs">
         <h2>Graphs</h2>
-        <embed src="./EntireSheetLandscape.pdf" type="application/pdf" style="width: 100%; height: calc(100vh - 100px); max-width: 100%; border: none;">
-        <a href="./EntireSheetLandscape.pdf" target="_blank">Download Chart PDF</a>
     </section>
 
     <section id="Email">
         <h2>Email it to Me</h2>
-        <button onclick="emailData()">Request Data via Email</button>
     </section>
 
     <section id="Data">
         <h2>Data</h2>
-        <div id="data-tables">
-            <!-- Data tables will load here dynamically -->
-        </div>
+        <div id="data-tables"></div>
     </section>
 
     <section id="Video">
         <h2>Video</h2>
-        <div class="window" id="youtube">
-            <h2>YouTube Video</h2>
-            <iframe width="80%" height="80%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
     </section>
 
-    <!-- New Section for Random Reddit Analysis with responsive styling and borders -->
     <section id="RandomReddit">
         <div id="random-content">
             Loading...
@@ -263,11 +222,5 @@
             Loading link...
         </div>
     </section>
-
-    <script>
-        function emailData() {
-            alert("Functionality to email data will be implemented here.");
-        }
-    </script>
 </body>
 </html>
