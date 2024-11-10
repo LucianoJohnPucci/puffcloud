@@ -1,12 +1,5 @@
 [
   {
-    "Subreddit": "Subreddit",
-    "Title": "Post Title",
-    "CommentsPerDay": "Date",
-    "NumberOfComments": "Upvotes",
-    "PostLink": "Comments"
-  },
-  {
     "Subreddit": "r/technology",
     "Title": "What happened to the Artificial-Intelligence Revolution? So far the technology has had almost no economic impact",
     "CommentsPerDay": "4mo ago",
@@ -161,6 +154,13 @@
     "PostLink": 172
   },
   {
+    "Subreddit": "r/singularity",
+    "Title": "Artificial intelligence: Math, not magic",
+    "CommentsPerDay": "6d ago",
+    "NumberOfComments": 72,
+    "PostLink": 45
+  },
+  {
     "Subreddit": "r/Futurology",
     "Title": "Tech leaders urge a pause in the 'out-of-control' artificial intelligence race",
     "CommentsPerDay": "2y ago",
@@ -173,12 +173,5 @@
     "CommentsPerDay": "5d ago",
     "NumberOfComments": 67,
     "PostLink": 357
-  },
-  {
-    "Subreddit": "r/science",
-    "Title": "Artificial intelligence reveals Trump?s language as both uniquely simplistic and divisive among U.S. presidents",
-    "CommentsPerDay": "6d ago",
-    "NumberOfComments": 67,
-    "PostLink": 355
   }
 ]
