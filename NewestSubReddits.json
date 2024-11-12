@@ -1,5 +1,12 @@
 [
   {
+    "Subreddit": "r/worldnews",
+    "Title": "artificial_intelligence_raises_ukrainian_drone",
+    "CommentsPerDay": 30,
+    "NumberOfComments": 961,
+    "PostLink": "https://www.reddit.com/r/worldnews/comments/1g3uurp/artificial_intelligence_raises_ukrainian_drone/"
+  },
+  {
     "Subreddit": "r/AskReddit",
     "Title": "what_do_you_think_about_peoples_fear_of",
     "CommentsPerDay": 60,
@@ -21,18 +28,18 @@
     "PostLink": "https://www.reddit.com/r/pcgaming/comments/1fhquqd/nvidia_ceo_we_cant_do_computer_graphics_anymore/"
   },
   {
-    "Subreddit": "r/vfx",
-    "Title": "artificial_intelligence_is_losing_hype",
-    "CommentsPerDay": 60,
-    "NumberOfComments": 66,
-    "PostLink": "https://www.reddit.com/r/vfx/comments/1f2ze6q/artificial_intelligence_is_losing_hype/"
-  },
-  {
     "Subreddit": "r/WGU",
     "Title": "master_in_artificial_intelligence_coming_out_soon",
     "CommentsPerDay": 60,
-    "NumberOfComments": 128,
+    "NumberOfComments": 129,
     "PostLink": "https://www.reddit.com/r/WGU/comments/1fj97ss/master_in_artificial_intelligence_coming_out_soon/"
+  },
+  {
+    "Subreddit": "r/vfx",
+    "Title": "artificial_intelligence_is_losing_hype",
+    "CommentsPerDay": 90,
+    "NumberOfComments": 66,
+    "PostLink": "https://www.reddit.com/r/vfx/comments/1f2ze6q/artificial_intelligence_is_losing_hype/"
   },
   {
     "Subreddit": "r/Weird",
@@ -166,12 +173,5 @@
     "CommentsPerDay": 365,
     "NumberOfComments": 332,
     "PostLink": "https://www.reddit.com/r/ksi/comments/13y58ob/i_cloned_ksis_voice_using_artificial_intelligence/"
-  },
-  {
-    "Subreddit": "r/nextfuckinglevel",
-    "Title": "auto_valet_parking_with_robots_and_artificial",
-    "CommentsPerDay": 365,
-    "NumberOfComments": 832,
-    "PostLink": "https://www.reddit.com/r/nextfuckinglevel/comments/149aqec/auto_valet_parking_with_robots_and_artificial/"
   }
 ]
