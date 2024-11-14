@@ -1,10 +1,10 @@
 [
   {
-    "Link": "POST LINK COMMENTS",
-    "Subreddit": "#N/A",
-    "Title": "In this Reddit post, users are discussing the implementation of AI in healthcare. The overwhelming sentiment is positive, with many commenters highlighting the potential benefits of AI in improving patient care, increasing efficiency, and reducing costs. Some key positive points raised include AI's ability to analyze large amounts of medical data quickly and accurately, identify patterns and trends, and assist doctors in making diagnoses and developing treatment plans. However, concerns were expressed around data privacy and the potential for AI to replace human doctors. The top comment, with the most upvotes, proposes a balance between AI and human doctors, stating that \"AI should be used as a tool by doctors, not as a replacement for them.\" Overall, while there is excitement about the potential of AI in healthcare, there are also reservations about its limitations and ethical implications.",
-    "CommentsPerDay": "#N/A",
-    "NumberOfComments": "#N/A",
-    "URL": "#N/A"
+    "Link": "https://www.reddit.com/r/technology/comments/1eji65y/has_the_ai_bubble_burst_wall_street_wonders_if/",
+    "Subreddit": "has_the_ai_bubble_burst_wall_street_wonders_if",
+    "Title": "The post in question is a discussion about the bursting of the AI bubble and the uncertainty surrounding its impact on Wall Street. While some commenters express optimism about continued growth and advancements in the field, others voice concerns about the potential loss of jobs and the need for regulation. The overall sentiment seems to be one of caution and skepticism, with many calling for a deeper understanding of AI and its potential consequences. The most upvoted comment by user u/chewxy highlights the need for both financial and ethical considerations in the development of AI technology.",
+    "CommentsPerDay": 1.3150684931506849,
+    "NumberOfComments": 960,
+    "URL": "r/technology"
   }
 ]
