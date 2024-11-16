@@ -70,6 +70,13 @@
     "PostLink": "https://www.reddit.com/r/preppers/comments/zfybt3/artificial_intelligence_is_here_and_will_cause_a/"
   },
   {
+    "Subreddit": "r/pcmasterrace",
+    "Title": "in_regards_to_the_nvidia_ceo_saying_we_cant_do",
+    "CommentsPerDay": 0.35,
+    "NumberOfComments": 21,
+    "PostLink": "https://www.reddit.com/r/pcmasterrace/comments/1fign6i/in_regards_to_the_nvidia_ceo_saying_we_cant_do/"
+  },
+  {
     "Subreddit": "r/slatestarcodex",
     "Title": "what_happened_to_the_artificialintelligence",
     "CommentsPerDay": 0.31666666666666665,
@@ -89,13 +96,6 @@
     "CommentsPerDay": 0.24166666666666667,
     "NumberOfComments": 58,
     "PostLink": "https://www.reddit.com/r/whenthe/comments/1b19ad2/artificial_intelligence_meets_natural_stupidity/"
-  },
-  {
-    "Subreddit": "r/dataisbeautiful",
-    "Title": "oc_artificial_intelligence_hype_is_currently_at",
-    "CommentsPerDay": 0.2328767123287671,
-    "NumberOfComments": 85,
-    "PostLink": "https://www.reddit.com/r/dataisbeautiful/comments/17bhnjv/oc_artificial_intelligence_hype_is_currently_at/"
   },
   {
     "Subreddit": "r/news",
@@ -119,6 +119,13 @@
     "PostLink": "https://www.reddit.com/r/AskOldPeople/comments/1d1zp2f/what_are_your_thoughts_on_ai_artificial/"
   },
   {
+    "Subreddit": "r/Futurology",
+    "Title": "samsungs_ai_chief_predicts_artificial",
+    "CommentsPerDay": 0.11095890410958904,
+    "NumberOfComments": 81,
+    "PostLink": "https://www.reddit.com/r/Futurology/comments/1fsja3e/samsungs_ai_chief_predicts_artificial/"
+  },
+  {
     "Subreddit": "r/coolguides",
     "Title": "a_cool_guide_to_60_iconic_artificial",
     "CommentsPerDay": 0.09333333333333334,
@@ -131,13 +138,6 @@
     "CommentsPerDay": 0.08493150684931507,
     "NumberOfComments": 31,
     "PostLink": "https://www.reddit.com/r/ArtificialInteligence/comments/17196sp/are_we_currently_in_an_artificial_intelligence/"
-  },
-  {
-    "Subreddit": "r/Futurology",
-    "Title": "samsungs_ai_chief_predicts_artificial",
-    "CommentsPerDay": 0.07397260273972603,
-    "NumberOfComments": 81,
-    "PostLink": "https://www.reddit.com/r/Futurology/comments/1fsja3e/samsungs_ai_chief_predicts_artificial/"
   },
   {
     "Subreddit": "r/interestingasfuck",
@@ -168,10 +168,10 @@
     "PostLink": "https://www.reddit.com/r/movies/comments/jpkhb4/ai_artificial_intelligence_is_a_goddamn/"
   },
   {
-    "Subreddit": "r/pcmasterrace",
-    "Title": "in_regards_to_the_nvidia_ceo_saying_we_cant_do",
-    "CommentsPerDay": 0.028767123287671233,
-    "NumberOfComments": 21,
-    "PostLink": "https://www.reddit.com/r/pcmasterrace/comments/1fign6i/in_regards_to_the_nvidia_ceo_saying_we_cant_do/"
+    "Subreddit": "r/AnarchyChess",
+    "Title": "i_had_an_artificial_intelligence_create_a_chess",
+    "CommentsPerDay": 0.024657534246575342,
+    "NumberOfComments": 9,
+    "PostLink": "https://www.reddit.com/r/AnarchyChess/comments/17aibq7/i_had_an_artificial_intelligence_create_a_chess/"
   }
 ]
